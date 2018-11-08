@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>文章内容页</title>
+	<!--防止IE进入怪异模式-->
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	{include file="public:head" /}
+</head>
+
+<body>
+<div class="header other-page">
+	{include file="public:nav"}
+
+</div>
+
+<div class="w1200 article mt30 bgfff">
+	<div class="wz-banner">
+		<div class="banner-content">
+			<p class="p-time2">{$news['news_time']|date="h",###}月{$news['news_time']|date="m",###}日</p>
+			<h3>{$news['news_title']}</h3>
+			<p class="p-renqi">
+				<span class="spn-editor">编辑： <a href="">{$news['news_titleshort']}</a></span>
+				<span class="spn-source">来源：<em> {$news['news_source']}</em></span>
+				<span class="spn-liulan"><em>{$news['news_hits']} </em>浏览</span>
+			</p>
+		</div>
+		<div class="img">
+			<img src="{$news['news_img']}" />
+			<div class="fade-box"></div>
+		</div>
+	</div>
+	<div class="wz-text bgfff">
+		{$news['news_content']}
+	</div>
+
+	<div class="tags w920">
+		{notempty name="$news['pag_id']"}
+		{foreach $news['pag_id'] as $k=>$v}
+		<span class="spn-bq">{$v.pag_name}</span>
+		{/foreach}
+		{/notempty}
+	</div>
+	<div class="fx-box  clearfix w920 mt90">
+		{if condition=" $news['collection'] eq 0"}
+		<span class="a-shouc collect" tai="1" n_id="{$news['n_id']}">已收藏</span>
+		{else /}
+		<span class="a-shouc collect" tai="0" n_id="{$news['n_id']}">收藏</span>
+		{/if}
+		<script>
+            $(function () {
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+            });
+            })
+            $(function () {
+                $('.collect').click(function () {
+                    var tai = $(this).attr('tai');
+                    var n_id = $(this).attr('n_id');
+                    var _this = $(this);
+                    $.post("{:url('Listn/enshrine')}",{tai:tai,n_id:n_id},function (res) {
+
+                        if(typeof res==='string'){
+                            layer.msg('请登录 3秒自动跳转');
+                         setTimeout(()=>{
+                             window.location.href="/home/index/entry.html";
+						 },1000)
+						}else{
+                            if(res){
+                                if(tai == 1){
+                                    layer.msg('取消收藏成功！');
+                                    _this.attr('tai',0);
+                                    _this.text('收藏作品');
+                                }else{
+                                    layer.msg('收藏成功！');
+                                    _this.attr('tai',1);
+                                    _this.text('已收藏');
+                                }
+                            };
+						}
+
+
+                    })
+                })
+            })
+		</script>
+		<div class="share fr">
+
+			<div class="bdsharebuttonbox fr">
+				<span>分享</span>
+				<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a href="#" class="bds_weixin ml15" data-cmd="weixin" title="分享到微信"></a>
+				<a href="#" class="bds_qzone ml15" data-cmd="qzone" title="分享到QQ空间"></a>
+			</div>
+			<script>
+                window._bd_share_config = {
+                    "common": {
+                        "bdSnsKey": {},
+                        "bdText": "",
+                        "bdMini": "2",
+                        "bdMiniList": false,
+                        "bdPic": "",
+                        "bdStyle": "2",
+                        "bdSize": "24"
+                    },
+                    "share": {}
+                };
+                with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+			</script>
+		</div>
+	</div>
+
+	{include file="public:rightslider"}
+</div>
+{present name="name"}
+<div class="tuijian-yuedu w1200 mt60">
+	<h4>推荐阅读</h4>
+	<ul class="list-tj clearfix">
+
+		{foreach  $extend as $k=>$v}
+		<li>
+			<a href="{:url('Index/substance',['id'=>$v['n_id']])}">
+				<div class="pic-box">
+					<img src="{$v.news_img}"/>
+				</div>
+				<div class="tjyd-pro">
+					<p>{$v.news_title}</p>
+				</div>
+			</a>
+		</li>
+		{/foreach}
+
+	</ul>
+</div>
+{/present}
+
+{include file="public:footer" /}
+<!---------弹窗----------------->
+<div class="bg-zz">
+
+</div>
+<div class="tank tk-jubao bgfff">
+	<h4>选择举报类型</h4>
+	<a href="javascript:;" class="a-tk-close"></a>
+	<form action="" method="post" class="fom-jb">
+		<input type="radio" name="jb" id="jb1" value=""/><label for="">垃圾（广告、推销、诈骗）</label><br />
+		<input type="radio" name="jb" id="jb2" value=""/><label for="">不当（色情、粗暴、政治敏感）</label><br />
+		<input type="radio" name="jb" id="jb3" value=""/><label for="">不合适（没意义、不合适）</label><br />
+		<input type="radio" name="jb" id="jb4" value=""/><label for="">其他</label><input type="text" name="" id="" value="" placeholder="备注"/>
+		<div class="btn-tk mt30">
+			<a href="javascript:;" class="a-quxiao-tk">取消</a><input type="submit" value="提交"/>
+		</div>
+
+	</form>
+</div>
+<script type="text/javascript">
+    $(".a-jubao").click(function() {
+        $(".bg-zz,.tk-jubao").show();
+    });
+    $(".a-tk-close,.a-quxiao-tk").click(function() {
+        $(".bg-zz,.tk-jubao").hide();
+    });
+</script>
+</body>
+
+</html>

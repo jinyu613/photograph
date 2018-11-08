@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>{$site_name}</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {include file="public:head" /}
+</head>
+
+<body>
+
+    <div class="header">
+        {include file="public:nav"}
+        <h1 class="head-title">
+            欢迎来到POCO
+        </h1>
+
+        {empty name="consumer"}
+        <a href="{:url('Index/entry')}" class="head-add">
+            加入POCO
+        </a>
+        {else /}
+        <a href="{:url('index/centrality',['id'=>$id])}" class="head-add">
+            个人中心
+        </a>
+        {/empty}
+
+        <div class="scan-code">
+
+            <img src="{$yf_theme_path}public/images/img2.png" alt="">
+            <p>
+                立即下载APP
+            </p>
+        </div>
+
+        <p class="head-user-info">
+            作品来自：<a href="">摄影师武林</a>
+        </p>
+    </div>
+
+    <div class="content2 w1200">
+
+            <img src="{$yf_theme_path}public/images/img6.png" alt="">
+
+    </div>
+    <div class="content3 w1200">
+        <div class="content3-title">
+            <h2>
+                首页推荐
+                <em></em>
+                <em></em>
+            </h2>
+        </div>
+        <ul class="centent3-list clearfix">
+            {foreach $home as $k=>$v}
+            <li>
+                <img src="{$v.news_img}" alt="">
+                <div class="item-info-wrap">
+                    <a href="{:url('index/substance',['id'=>$v.n_id])}">
+                        <div class="item-info clearfix">
+                            <a href="{:url('index/substance',['id'=>$v.n_id])}" class="item-user-info">
+                                <img src="{$v.xia.user_url}" alt="">
+                                <span>{$v.xia.member_list_nickname}</span>
+                            </a>
+                            <a href="javascript:" class="item-praise">
+                                <span class="a-dianzan2232"  value="{$v.n_id}" fache="{$v.xia.member_list_id}" tai="1">{$v.fabulous}已点赞</span>
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+        <script>
+            $(function () {
+                layui.use('layer', function () {
+                    var layer = layui.layer;
+                    $('.a-dianzan2232').click(function () {
+                        var n_id = $(this).attr('value');
+                        var _this = $(this);
+                        var id = $(this).attr('fache');
+                        var tai = $(this).attr('tai');
+                        $.post("{:url('Listn/fabulous')}", {
+                            id: id,
+                            n_id: n_id,
+                            tai: tai
+                        }, function (res) {
+                            console.log(res);
+                            if (res == false) {
+                                layer.msg('请不要重复点赞');
+                            } else {
+                                _this.html(res);
+                            }
+                        })
+                    })
+                });
+            })
+        </script>
+    </div>
+    <div class="content4 w1200">
+        <ul class="clearfix">
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">人像</a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">风景</a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">生态</a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">纪实</a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">生活</a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">潜水</a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">航拍</a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">
+                    手机摄影
+                </a>
+            </li>
+            <li>
+                <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}">
+                    查看更多
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content5 w1200">
+        <div class="content3-title">
+            <h2>
+                摄影技巧
+                <em></em>
+                <em></em>
+            </h2>
+        </div>
+        <ul class="content5-list clearfix">
+            {foreach $jiqiao as $k=>$v}
+            <li>
+                <a href="{:url('index/substance',['id'=>$v.n_id])}">
+                    <img src="{$v.news_img}" alt="">
+                    <div>
+                        <h3>{$v.news_title}</h3>
+                        <p>
+                            {$v.news_scontent}
+                        </p>
+                    </div>
+                </a>
+            </li>
+            {/foreach}
+        </ul>
+        <a href="{:url('Index/submenu',['id'=>20,'menu_listtpl'=>'technique'])}" class="look-more">
+            查看更多
+        </a>
+    </div>
+
+    <!--<div class="content6 w1200 clearfix">-->
+    <!--<div class="content6-item">-->
+    <!--<div class="content3-title">-->
+    <!--<h2>-->
+    <!--大疆航拍专区-->
+    <!--<em></em>-->
+    <!--</h2>-->
+    <!--</div>-->
+    <!--<ul class="content6-list clearfix">-->
+    <!--<li>-->
+    <!--<img src="{$yf_theme_path}public/images/img10.png" alt="">-->
+    <!--<h3>大疆航拍专区</h3>-->
+    <!--<p>换个角度看世界</p>-->
+    <!--<a href="">点击进入</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="">-->
+    <!--<p>新生活新开始，校园生活有TA更精彩</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<div>-->
+    <!--<p>POCO • 大疆航拍专区月赛 | 开学日的发现-->
+    <!--<span></span>-->
+    <!--</p>-->
+    <!--<a href="">参与活动</a>-->
+    <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="">-->
+    <!--<p>移动延时？无人机也能玩哟~！</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="content6-item">-->
+    <!--<div class="content3-title">-->
+    <!--<h2>-->
+    <!--手机摄影-->
+    <!--<em></em>-->
+    <!--</h2>-->
+    <!--</div>-->
+    <!--<ul class="content6-list clearfix">-->
+    <!--<li>-->
+    <!--<img src="{$yf_theme_path}public/images/img10.png" alt="">-->
+    <!--<h3>大疆航拍专区</h3>-->
+    <!--<p>换个角度看世界</p>-->
+    <!--<a href="">点击进入</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="">-->
+    <!--<p>新生活新开始，校园生活有TA更精彩</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<div>-->
+    <!--<p>POCO • 大疆航拍专区月赛 | 开学日的发现-->
+    <!--<span></span>-->
+    <!--</p>-->
+    <!--<a href="">参与活动</a>-->
+    <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="">-->
+    <!--<p>移动延时？无人机也能玩哟~！</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="content7">
+        <div class="content3-title">
+            <h2>
+                视觉漫游
+                <em></em>
+                <em></em>
+            </h2>
+        </div>
+        <div class="content7-swiper">
+            <ul class="swiper-wrapper">
+                {foreach $shijue as $k=>$v}
+                <li class="swiper-slide">
+                    <a href="{:url('index/substance',['id'=>$v.n_id])}">
+                        <img src="{$v.news_img}" alt="">
+                        <div>
+                            <h3>{$v.news_title}</h3>
+                            <p>
+                                {$v.news_scontent}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+            <div class="content7-prev"></div>
+            <div class="content7-next"></div>
+
+        </div>
+
+        <div class="content-left-shade"></div>
+        <div class="content-right-shade"></div>
+        <a href="{:url('Index/submenu',['id'=>19,'menu_listtpl'=>'list'])}" class="look-more">
+            查看更多
+        </a>
+    </div>
+
+
+    <!--<div class="content8 w1200">-->
+        <!--<div class="content3-title">-->
+            <!--<h2>-->
+                <!--热门摄影师-->
+                <!--<em></em>-->
+                <!--<em></em>-->
+            <!--</h2>-->
+        <!--</div>-->
+        <!--<ul class="content8-list clearfix">-->
+            <!--{foreach $remensheyin as $k=>$v}-->
+            <!--<li>-->
+                <!--<div class="content8-list-bg">-->
+                    <!--<img src="{$v.birthday_url}" alt="">-->
+                <!--</div>-->
+                <!--<div class="content8-list-info">-->
+                    <!--<a href="{:url('index/centrality',['id'=>$v.member_list_id])}" class="content8-item-user-img">-->
+                        <!--<img src="{$v.user_url}" alt="">-->
+                    <!--</a>-->
+
+                    <!--<a href="{:url('index/centrality',['id'=>$v.member_list_id])}">-->
+                        <!--{$v.member_list_nickname}-->
+                    <!--</a>-->
+                    <!--<p>-->
+                        <!--{$v.member_list_province} </p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--{/foreach}-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<br />-->
+
+
+    <!--<div class="content3 content9 w1200">-->
+    <!--<ul class="centent3-list clearfix">-->
+    <!--<li>-->
+    <!--<span>-->
+    <!--人像-->
+    <!--</span>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img7.png" alt="">-->
+    <!--<p>-->
+    <!--拒绝小清新！夏秋来点大胆叛逆的色彩人像-->
+    <!--</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img7.png" alt="">-->
+    <!--<p>-->
+    <!--拒绝小清新！夏秋来点大胆叛逆的色彩人像-->
+    <!--</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<span>-->
+    <!--人像-->
+    <!--</span>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img7.png" alt="">-->
+    <!--<p>-->
+    <!--拒绝小清新！夏秋来点大胆叛逆的色彩人像-->
+    <!--</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<span>-->
+    <!--人像-->
+    <!--</span>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img7.png" alt="">-->
+    <!--<p>-->
+    <!--拒绝小清新！夏秋来点大胆叛逆的色彩人像-->
+    <!--</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img7.png" alt="">-->
+    <!--<p>-->
+    <!--拒绝小清新！夏秋来点大胆叛逆的色彩人像-->
+    <!--</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<span>-->
+    <!--人像-->
+    <!--</span>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img7.png" alt="">-->
+    <!--<p>-->
+    <!--拒绝小清新！夏秋来点大胆叛逆的色彩人像-->
+    <!--</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<span>-->
+    <!--人像-->
+    <!--</span>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img7.png" alt="">-->
+    <!--<p>-->
+    <!--拒绝小清新！夏秋来点大胆叛逆的色彩人像-->
+    <!--</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<img src="{$yf_theme_path}public/images/img15.png" alt="">-->
+    <!--<h3>POCO摄影</h3>-->
+    <!--<p>摄影必备移动应用</p>-->
+    <!--<a href="">-->
+    <!--<img src="{$yf_theme_path}public/images/img17.png" alt="">-->
+    <!--立即下载-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    {include file="public:footer" /}
+</body>
+<script>
+    const mySwiper = new Swiper('.content7-swiper', {
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 100,
+        navigation: {
+            nextEl: '.content7-next',
+            prevEl: '.content7-prev',
+        },
+    })
+
+
+
+
+    const headSearchSelect = query('.head-search-select');
+    const headSelectList = query('.head-select-list');
+    const headSelectListLis = query('.head-select-list li');
+    headSearchSelect.addEventListener('click', () => {
+        headSelectList.classList.toggle('showHide');
+    });
+    headSelectListLis.forEach(item => {
+        item.addEventListener('click', () => {
+            headSearchSelect.innerHTML = item.innerHTML;
+            headSelectList.classList.remove('showHide');
+        })
+    })
+</script>
+<script>
+
+</script>
+
+</html>

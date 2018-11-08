@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>{$site_name}</title>
+	<!--防止IE进入怪异模式-->
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	{include file="public:head" /}
+</head>
+
+<body>
+	<div class="header other-page">
+		{include file="public:nav" /}
+	</div>
+
+	<div class="zz-main w1200">
+		<div class="zz-top-wrap clearfix">
+			<div class="z-title_nav fl">
+				<div class="zz-img">
+					<img class="lazyload resize img123" src="{$yf_theme_path}public/images/15196563623372643_178263582_S240.jpg">
+				</div>
+				<div class="zz-info-text">
+					<div class="zz-title">
+						<a href="">
+							<h2>{$distroct['menu_name']}</h2>
+						</a>
+						{if condition ="$distroct['area_id'] neq $distroct['id']"}
+						<a class="add-info affiliate" href="javascript:;">加入</a>
+						{/if}
+					</div>
+					<p class="zz-middle"><a href="">成员：<span>{$member}</span></a><a href="">作品：<span>{$writing}</span></a></p>
+					<p class="zz-intro">{$distroct['menu_name']}</p>
+				</div>
+			</div>
+			<div class="z-club-captain fr">
+				<h4>地区站长</h4>
+				<ul>
+					{if condition="$stationmaster neq null"}
+					{foreach $stationmaster as $k=>$v}
+					<li>
+						<a class="pic" href="">
+							<img src="{$v.user_url}" alt="" />
+						</a>
+						<a class="title" href="">{$v.member_list_nickname}</a>
+					</li>
+					{/foreach}
+					{/if}
+				</ul>
+			</div>
+		</div>
+		<div class="zz-slide-wrap clearfix">
+			<div class="zz-banner activities-main fl">
+				<div class="acti-m-p2 swiper-container">
+					<ul class="swiper-wrapper">
+
+						{foreach $broadcasting as $k=>$v}
+						<li class="swiper-slide">
+							<a href="{$v.plug_ad_url}">
+								<img src="{$v.plug_ad_pic}" alt="{$v.plug_ad_name}" />
+							</a>
+						</li>
+						{/foreach}
+					</ul>
+					<div class="swiper-pagination"> </div>
+				</div>
+			</div>
+			<div class="z-club-captain fr">
+				<h4>摄影技巧</h4>
+				<div class="activity-intro-list">
+
+					{$distroct['menu_content']}
+				</div>
+				<h4>推荐摄影师 <a href="" class="fr">查看更多</a></h4>
+				<ul>
+					{if condition="$photographer neq null"}
+					{foreach $photographer as $k=>$v}
+					<li>
+						<a class="pic" href="">
+							<img src="{$v.user_url}" alt="" />
+							<i></i>
+						</a>
+						<a class="title" href="">{$v.member_list_nickname}</a>
+					</li>
+					{/foreach}
+					{/if}
+				</ul>
+			</div>
+		</div>
+		<div class="main-list main-list2">
+			<div class="tab-list w1200">
+				<div class="tab-nav">
+					<a class="cur imgs-btn" href="javascript:;">热门</a>
+					<a href="javascript:;" class="imgs-btn">站长推荐</a>
+					<a href="javascript:;" class="imgs-btn">最新</a>
+				</div>
+				<div class="tab-select fr">
+					<a href="javascript:;" class="photos-type-active">全部<i></i></a>
+					<div class="toggle_list toggle_list_all">
+						<h4>全部类别</h4>
+						<div class="clearfix">
+							<a href="javascript:void(0)" class="thisclass">全部</a>
+							{foreach $counter as $k=>$v}
+
+							<a href="javascript:;" this-id='{$v.id}' class="photos-type-item">{$v.assortment_name}</a>
+							{/foreach}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-content w1200">
+				<div class="photos-list">
+					<div class="photos">
+
+					</div>
+				</div>
+				<div class="photos-list">
+					<div class="photos">
+
+					</div>
+				</div>
+				<div class="photos-list">
+					<div class="photos">
+
+					</div>
+				</div>
+				<div class="photos-type-wrap" style="display:none;">
+					<div class="photos-type"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" value="{$id}" class="page-id">
+	<div class="footer">
+		<div class="foot-content1 w1200 clearfix">
+			<div class="foot-content1-left">
+				<a href="" class="foot-logo">
+					<img src="{$yf_theme_path}public/{$yf_theme_path}public/images/img18.png" alt="">
+				</a>
+				<p class="foot-left-text">
+					POCO.CN是目前国内最大的以原创图片为核心的分享社区。分享近4亿张原创图片，平均每日新增20万张上传图片；聚合1.1亿优质网友。
+				</p>
+				<ul class="foot-left-list clearfix">
+					<li>
+						<a href="">关于我们</a>
+					</li>
+					<li>
+						<a href="">联系我们</a>
+					</li>
+					<li>
+						<a href="">广告合作</a>
+					</li>
+					<li>
+						<a href="">市场合作</a>
+					</li>
+					<li>
+						<a href="">帮助中心</a>
+					</li>
+					<li>
+						<a href="">留言反馈</a>
+					</li>
+				</ul>
+				<p class="foot-links">
+					<a href="">
+						增值电信经营许可证
+					</a>
+					<a href="">
+						不良信息举报中心
+					</a>
+				</p>
+				<p class="foot-info">
+					POCO网违法和不良信息举报电话：020-87396390 举报邮箱：714713387@qq.com
+				</p>
+			</div>
+			<div class="foot-content1-center">
+				<h3>关注我们</h3>
+				<a href=""></a>
+				<p>
+					<img src="{$yf_theme_path}public/{$yf_theme_path}public/images/img20_09.png" alt="">
+				</p>
+			</div>
+
+			<div class="foot-content1-right">
+				<h3>APP下载</h3>
+				<div class="clearfix">
+					<img src="{$yf_theme_path}public/{$yf_theme_path}public/images/img2.png" alt="">
+					<p>
+						<a href="">
+							iPhone下载
+						</a>
+						<a href="">
+							Android下载
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="foot-content2">
+			<p class="clearfix">
+				<span>备案号 : </span>
+				<a href="">粤B2-20030218号-2</a>
+				<span>ICP证号 ：</span>
+				<a href="">
+					粤B2-20030218号-2
+				</a>
+				<span>
+					Copyright © 2003-2018
+				</span>
+				<img src="{$yf_theme_path}public/{$yf_theme_path}public/images/img21.png" alt="">
+				<img src="{$yf_theme_path}public/{$yf_theme_path}public/images/img22.png" alt="">
+				<a href="">
+					粤公网安备 44010402000060号
+				</a>
+			</p>
+		</div>
+
+	</div>
+	<div class="bg_black"></div>
+	<div class="content_wrap">
+		<a href="javascript:;" class="close">×</a>
+		<h3>申请加入</h3>
+		<form action="{:url('News/affiliate')}" method="post" enctype="multipart/form-data">
+			<ul>
+				<li>
+					<label for="">联系邮箱</label>
+					<input type="text" class="member_list_email" placeholder="请填入邮箱" />
+				</li>
+				<li>
+					<label for="">联系手机</label>
+					<input type="text" class="member_list_tel" placeholder="请填入手机" />
+					<input type="hidden" class="area_id" value="{$id}">
+				</li>
+			</ul>
+			<div class="content_tips_wrap">
+				<p>确定加入后，满一个月才能更换加入其它地方站。</p>
+				<p>当您迁移到另一个地区站时，已关联的地区站作品不作转移。</p>
+			</div>
+			<div class="change_btn">
+				<a href="javascript:;" class="change_btn_detail change_btn_del">取消</a>
+				<input type="button" class="change_btn_detail change_confirm_btn submit" value="提交" />
+			</div>
+			{$id}
+		</form>
+	</div>
+	<script>
+		const id = query('.page-id').value;
+		const imgsList = query('.photos-list');
+
+		class Pinterest {
+			constructor(url, id, a_id, dom, child, domLength = 1) {
+				this.domLength = domLength;
+				this.dom = dom;
+				this.child = child;
+				this.id = id;
+				this.a_id = a_id;
+				this.imgsListTop = dom.offsetTop;
+				this.imgsListHeight = dom.offsetHeight;
+				this.windowHeight = document.body.offsetHeight;
+				this.number = 0;
+				this.onOff = false;
+				bindEvent(dom, 'mousewheel', ev => {
+					this.scrollTop = document.documentElement.scrollTop;
+					if (this.onOff && this.scrollTop >= this.imgsListTop + this.imgsListHeight - this.windowHeight) {
+						this.getImgs(url);
+					}
+				})
+				this.getImgs(url);
+			}
+			getImgs(url) {
+				console.log('请求', url, this.number)
+				this.onOff = false;
+				$.post(url, {
+					id: this.id,
+					a_id: this.a_id,
+					number: this.number,
+					numberTwo: 10
+				}, res => {
+					console.log(res);
+					this.addImgs(res)
+					this.number += 10;
+				})
+			}
+			addImgs(imgs) {
+				this.imgItem = '';
+				imgs.forEach(item => {
+					this.imgItem +=
+						`<div class="photo">
+							<img src="${item.news_img}">
+							<div class="title">
+								<div class="top">
+									<span class="liulan-span">${item.news_hits} 浏览</span>
+									<span class="shuliang-span">${item.news_pic_allurl}<i></i></span>
+								</div>
+								<div class="bottom">
+									<div class="user_item">
+										<a href="">
+											<img class="user_img" src="${item.news[0].user_url}" />
+											<h4 class="user_name">${item.news[0].member_list_nickname}</h4>
+										</a>
+									</div>
+									<span class="zan-span cur"> <i></i>${item.fabulous}</span>
+								</div>
+							</div>
+						</div>`;
+				})
+				this.dom.querySelector(this.child).innerHTML += this.imgItem;
+				this.imgsListHeight = this.dom.offsetHeight;
+				this.onOff = true;
+
+				for (let i = 0; i < this.domLength; i++) {
+					$(this.child).eq(i).gallerify({
+						margin: 5,
+						mode: 'default',
+						lastRow: 'adjust'
+					});
+				}
+			}
+		}
+
+		let pinterest = new Pinterest("{:url('news/popular')}", id, null, imgsList[0], '.photos', 3)
+		let pinterest1 = new Pinterest("{:url('news/recommends')}", id, null, imgsList[1], '.photos', 3)
+		let pinterest2 = new Pinterest("{:url('news/newest')}", id, null, imgsList[2], '.photos', 3)
+
+		bindEvent(query('.photos-type-item'), 'click', function () {
+			query('.photos-type-active').innerHTML = this.innerHTML + '<i></i>';
+			hideObj(query('.photos'));
+			showObj(query('.photos-type-wrap'));
+			query('.photos-type').innerHTML = '';
+			let a_id = Number(this.getAttribute('this-id'));
+			let pinterest3 = new Pinterest("{:url('news/category')}", id, a_id, query('.photos-type-wrap'), '.photos-type');
+		})
+	</script>
+	<script>
+		$(".submit").click(function () {
+			let member_list_email = $('.member_list_email').val();
+			let member_list_tel = $('.member_list_tel').val();
+			let area_id = $('.area_id').val();
+			$.post("{:url('Listn/affiliate')}", {
+				member_list_email: member_list_email,
+				member_list_tel: member_list_tel,
+				area_id: area_id
+			}, function (res) {
+				if (res.code !== undefined) {
+					$(".bg_black,.content_wrap").fadeOut();
+					$(".affiliate").remove();
+					alert(res['msg']);
+				} else {
+					alert(res['msg']);
+				}
+			})
+
+		})
+		window.onload = function () {
+			$(".photos").show();
+			$(".main-content .photos-list:gt(0)").hide();
+		}
+		$(".tab-nav a").click(function () {
+			var i = $(this).index();
+			$(this).addClass("cur").siblings().removeClass("cur");
+			$(".main-content .photos-list").eq(i).show().siblings(".photos-list").hide();
+			showObj(query('.photos'));
+			$('.photos').eq(i).gallerify({
+				margin: 5,
+				mode: 'default',
+				lastRow: 'adjust'
+			});
+		})
+		$(".tab-select,.zan-span").click(function () {
+			$(this).toggleClass("cur");
+			return false;
+		});
+		var swiper = new Swiper('.acti-m-p2', {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			loop: true,
+			autoplay: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			}
+		});
+		$(".add-info").click(function () {
+			$(".bg_black,.content_wrap").fadeIn();
+			var w = $(".content_wrap").width() / 2;
+			var h = $(".content_wrap").height() / 2;
+			$(".content_wrap").css({
+				"margin-left": -w,
+				"margin-top": -h
+			});
+		});
+		$(".content_wrap a.close,.content_wrap .change_btn a").click(function () {
+			$(".bg_black,.content_wrap").fadeOut();
+		});
+	</script>
+</body>
+
+</html>

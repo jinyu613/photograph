@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>联系我们</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {include file="public:head" /}
+</head>
+	<body>
+	</body>
+</html>
+    <div class="header other-page">
+        {include file="public:nav"}
+    </div>
+ <input type="hidden" class="r_id" value="{$r_id}">
+ <div class="content21 w1200 clearfix">
+ 	<div class="content21-left">
+ 		 <ul>
+			{foreach $contact['xia'] as $k=>$v}
+
+                <li class="">
+                    <a href="javascript:;" data="{$v.id}">
+                       {$v.menu_name}
+                    </a>
+                </li>
+			 {/foreach}
+            </ul>
+ 	</div>
+ 	<div class="content21-right lxwm-m">
+		{foreach $contact['xia'] as $k=>$v}
+		{if condition="$v['menu_content'] neq null"}
+ 		<div class="list-box">
+			{$v.menu_content}
+		</div>
+		{else /}
+		{if condition="$v['xia'] neq null"}
+		<div class="list-box list-help">
+			{foreach $v['xia'] as $b=>$x}
+
+			<div class="title">
+				{$x.menu_name}
+			</div>
+			<div class="body">
+				{$x.menu_content}
+			</div>
+			{/foreach}
+		</div>
+		{else /}
+		<div class="list-box">
+			<form method="post" action="{:url('Login/message')}" enctype="multipart/form-data">
+		<div>
+			<div >
+				<h3>留言反馈</h3>
+			</div> <div >
+			<textarea name="plug_sug_content"  style="width: 100%;height: 250px; border: 1px solid #8d8d8d;" placeholder="请输入反馈意见" class="textarea-class"></textarea>
+		</div>
+			<div class="part-b">
+				<input type="text" name="plug_sug_email"  placeholder="请输入联系手机/邮箱/QQ" class="input-text"></div>
+			<input type="submit" value="提交">
+		</div>
+			</form>
+		</div>
+		{/if}
+		{/if}
+		{/foreach}
+		<!--<div class="list-box">-->
+			<!--<div class="section-title">-->
+				<!--<p>联系我们222</p>-->
+			<!--</div>-->
+			<!--<div class="lxfs-box">-->
+				<!--<h4>广州总公司</h4>-->
+				<!--<p>广州数联软件技术有限公司</p>-->
+				<!--<p>地址：<em>广州市五羊新城寺右一马路18号泰恒大厦1308室</em></p>-->
+				<!--<p>邮编：<em>510600</em></p>-->
+				<!--<p>电话： <em>(020) 87396369 87396965</em></p>-->
+				<!--<p>传真：<em>(020) 87396481</em></p>-->
+				<!--<h4>北京分公司</h4>-->
+				<!--<p>地址：<em>北京市东城区东四北大街107号科林大厦107室</em></p>-->
+				<!--<p>电话：<em>（010）56159841</em></p>-->
+
+				<!--<h4>上海分公司</h4>-->
+				<!--<p>地址：<em>上海市长宁路1189号来福士T2-2806室</em></p>-->
+				<!--<p>邮编：<em>200050</em></p>-->
+				<!--<p>电话：<em>（021）62990157</em></p>-->
+				<!--<h4>客户服务</h4>-->
+				<!--<p>QQ：<em>1044859368</em></p>-->
+				<!--<p>电话：<em>(020) 87396390</em></p>-->
+				<!--<p>POCO ID：<em>10000</em></p>-->
+			<!--</div>-->
+			<!--<div class="section-title mt50 pd30">-->
+				<!--<p>官方媒体</p>-->
+			<!--</div>-->
+			<!--<div class="erwm clearfix ml180 mt40">-->
+				<!--<div class="erwm1 fl">-->
+					<!--<div class=" pic-box">-->
+						<!--<img src="images/img20_09.png"/>-->
+					<!--</div>-->
+
+					<!--<p>微信公众号</p>-->
+				<!--</div>-->
+				<!--<div class="erwm2 fr mr180">-->
+					<!--<div class="pic-box">-->
+						<!--<img src="images/img20_09.png"/>-->
+
+					<!--</div>-->
+					<!--<p>官方微博</p>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+
+
+
+
+ 	</div>
+ </div>
+
+
+
+
+<script>
+	$(function(){
+	    $(".content21-left ul li:first-child").addClass("content21-left-active");
+	   $(".content21-right .list-box:gt(0)").hide();
+	   $(".content21-left ul li").click(function(){
+	       var i = $(this).index();
+           $(".content21-left ul li").eq(i).addClass("content21-left-active").siblings().removeClass();
+           $(".content21-right .list-box").eq(i).css({"position":"relative","left":"25px"});
+           $(".content21-right .list-box").eq(i).animate({"left":0}).show().siblings().hide();
+	   })
+		$(".list-help .title").click(function(){
+			$(this).next(".body").slideToggle().siblings(".body").slideUp();
+		})
+		var id = $(".r_id").val();
+        var m;
+	   	if(id){
+	   	    $(".content21-left ul li").each(function(){
+	   	       var i = $(this).find("a").attr("data");
+	   	       if(i === id){
+	   	           m = $(this).index();
+			   }
+			});
+            $(".content21-left ul li").eq(m).click();
+		}
+		console.log();
+	});
+</script>
+
+
+
+
+
+{include file="public:footer" /}

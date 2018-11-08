@@ -1,0 +1,56 @@
+{foreach $biaoqian as $k=>$v}
+<tr>
+    <td class="hidden-xs" align="center">
+        <label class="pos-rel">
+            <input name='n_id[]' id="navid" class="ace"  type='checkbox' value='{$v.id}'>
+            <span class="lbl"></span>
+        </label>
+    </td>
+    <td class="hidden-xs center">{$v.id}</td>
+    <td class="hidden-xs" align="center">{$v.pag_name}</td>
+
+    <td>
+
+        {if condition="$v['pag_open'] eq 0"}
+        <a class="red change-state" href="{:url('news/news_open',['id'=>$v.id])}" data-id="{$v.id}" title="不推荐">
+            <div id="zt{$v.id}"><button class="btn btn-minier btn-danger">不推荐</button></div>
+        </a>
+        {else/}
+        <a class="red change-state" href="{:url('news/news_open',['id'=>$v.id])}" data-id="{$v.id}" title="推荐">
+            <div id="zt{$v.id}"><button class="btn btn-minier btn-yellow">推荐</button></div>
+        </a>
+        {/if}
+    </td>
+    <td class="hidden-xs">
+        {$v.pag_quanname}
+    </td>
+    <td class="hidden-xs">{$v.p_pag_time|date="Y-m-d",###}</td>
+    <td>
+        <div class="hidden-sm hidden-xs action-buttons">
+            <a class="green" href="{:url('news/pag_exit',['id'=>$v.id])}" data-toggle="tooltip" title="修改">
+                <i class="ace-icon fa fa-pencil bigger-130"></i>
+            </a>
+            <a class="red confirm-rst-url-btn" data-info="你确定要删除到回收站吗？" href="" title="回收站" data-toggle="tooltip">
+                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+            </a>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <div class="inline position-relative">
+                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
+                    <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+                    <li>
+                        <a href="" data-info="你确定要删除到回收站吗？" class="tooltip-error confirm-rst-url-btn" data-rel="tooltip" title="回收站" data-original-title="回收站">
+											<span class="red">
+												<i class="ace-icon fa fa-trash-o bigger-120"></i>
+											</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </td>
+</tr>
+{/foreach}
+

@@ -1,0 +1,4 @@
+直接打开 ：域名+/install/index/index.html
+
+
+

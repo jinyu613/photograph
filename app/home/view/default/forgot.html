@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>{$site_name}</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{$yf_theme_path}public/css/jigsaw.css">
+    {include file="public:head" /}
+</head>
+
+<body>
+
+    <div class="header other-page">
+        {include file="public:nav"}
+    </div>
+
+    <div class="content10">
+
+        <a href="">
+            找回密码
+        </a>
+    </div>
+
+    <div class="content11 w1200 clearfix">
+        <div class="content11-left">
+            <ul>
+                <li class="content11-left-active">
+                    <p>确认账号</p>
+                    <span>1</span>
+                </li>
+                <li>
+                    <p>安全验证</p>
+                    <span>2</span>
+                </li>
+                <li>
+                    <p>重置密码</p>
+                    <span>3</span>
+                </li>
+            </ul>
+
+        </div>
+        <div class="content11-right">
+            <!---->
+
+            <!---->
+        </div>
+        <!--图形-->
+        <div class="bg_block"></div>
+        <div class="tuxing-box">
+            <div id="captcha" style="position: relative"></div>
+            <div id="msg"></div>
+        </div>
+        <!--图形 end-->
+    </div>
+
+    {include file="public:footer" /}
+</body>
+<script src="{$yf_theme_path}public/js/jigsaw.js"></script>
+<script>
+    var quereng = '<h2>确认账号</h2>' +
+        '<form action="" class="tabs-wrap">' +
+        '<div>' +
+        '<label for="">请输入您要找回密码的账号</label>' +
+        '<div class="clearfix content11-right-select-btn">' +
+        '<em class="selector-content">手机账号</em>' +
+        ' <p class="content11-right-select">' +
+        '<span class="content11-right-select-active tabs-btn">手机账号</span>' +
+        '</p>' +
+        '</div>' +
+        '</div>' +
+        '<div class="tabs-item">' +
+        '<label for="">手机号码</label>' +
+        '<div class="clearfix" style="padding:0;border: none;">' +
+        '<select name="" id="">' +
+        '<option value="">+86</option>' +
+        ' </select>' +
+        '<input class="tel" type="text" required name="admin_tel">' +
+        '</div>' +
+        '</div>' +
+        '<input type="button" class="next-btn" value="下一步">' +
+        '</form>' +
+        '<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2469089735&amp;site=qq&amp;menu=yes" class="help">求助客服 </a>';
+    var yanzheng = ' <h2>安全验证</h2>' +
+        '<form action="" class="tabs-wrap">' +
+        '<div>' +
+        ' <label for="">您可通过以下方式进行安全验证</label>' +
+        '<div class="clearfix content11-right-select-btn">' +
+        '<em class="selector-content">手机账号</em>' +
+        '<p class="content11-right-select"> ' +
+        '<span class="content11-right-select-active tabs-btn">手机账号</span>' +
+        ' </p>' +
+        '</div>' +
+        '</div>' +
+        '<div class="tabs-item duanxin-box">' +
+        '<label for="">短信验证码</label>' +
+        '<div class="clearfix">' +
+        '<input type="text" name="yanzheng" required class="yanzheng"> ' +
+        '<a href="javascript:;">获取验证码</a>' +
+        '</div>' +
+        '</div>' +
+        '<input type="button" class="next-btn" value="下一步">' +
+        '</form>' +
+        '<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2469089735&amp;site=qq&amp;menu=yes" class="help">求助客服 </a>';
+    var xiugai = ' <h2>重置密码</h2>' +
+        '<form action="" class="tabs-wrap">' +
+        '<div class="tabs-item password_box">' +
+        ' <label for="">新密码</label>' +
+        '<div class="clearfix"> ' +
+        '<input type="password" name="password" required class="password">' +
+        '</div> ' +
+        '</div>' +
+        '<div class="tabs-item password_box">' +
+        '<label for="">重复密码</label>' +
+        '<div class="clearfix">' +
+        '<input type="password" name="repassword" required class="repassword">' +
+        '</div>' +
+        ' </div>' +
+        '<input type="button" class="next-btn" value="提交修改">' +
+        '</form>' +
+        '<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2469089735&amp;site=qq&amp;menu=yes" class="help">求助客服 </a>';
+    $(".content11-right").html(quereng);
+    $(".bg_block,.tuxing-box").hide();
+    $(function(){
+        var f = true;
+        $(".next-btn").click(function(){
+            var tel = $('.tel').val();
+            $.post("{:url('Index/find_password')}",{tel:tel},function (res) {
+                if(res === 1){
+                    $(".content11-left ul li:nth-child(2)").addClass('content11-left-active');
+                    $(".content11-right").html(yanzheng);
+                    $(".duanxin-box a").click(function(){
+                        if(f){
+                            $(".bg_block,.tuxing-box").show();
+                            $(".refreshIcon").click();
+                        }
+                    });
+                    jigsaw.init(document.getElementById('captcha'), function () {
+                        $(".bg_block,.tuxing-box").hide();
+                        $.post("{:url('Index/yanzheng')}",{photo:tel},function (res) {
+                            console.log(res);
+                        });
+                        var t = 60;
+                        var t1;
+                        var time = setInterval(function(){
+                            t--;
+                            if(t === 0){
+                                f = true;
+                                t1 = '获取验证码';
+                                clearTimeout(time);
+                            }else{
+                                t1 = t + "s";
+                                f = false;
+                            }
+                            $(".duanxin-box a").text(t1);
+                        },1000);
+                    });
+                    $(".bg_block").click(function(){
+                        $(".bg_block,.tuxing-box").hide();
+                    });
+                    $(".next-btn").click(function(){
+                        var yanzheng = $(".yanzheng").val();
+                        $.post("{:url('Index/find_password2')}",{yanzheng:yanzheng},function (res) {
+                             if(res === 1){
+                                 $(".content11-left ul li:nth-child(3)").addClass('content11-left-active');
+                                 $(".content11-right").html(xiugai);
+                                 $(".next-btn").click(function(){
+                                    var password = $(".password").val();
+                                    var repassword = $(".repassword").val();
+
+                                    if(password == repassword){
+                                        $.post("{:url('Index/xiugai')}",{password:password},function (res) {
+                                            console.log(res);
+                                            if(res){
+                                                window.location.href='/';
+                                            }else{
+                                                alert('不能和旧密码一致！')
+                                            }
+                                        });
+                                    }else{
+                                        alert('密码不一致！')
+                                    }
+                                 });
+                             }else{
+                                 alert(res);
+                             }
+                        });
+                    })
+                }else{
+                    alert(res);
+                }
+            })
+        });
+    });
+</script>
+<script>
+
+
+    bindEvent(query('.head-search-select'), 'click', () => {
+        query('.head-select-list').classList.toggle('showHide');
+    })
+    bindEvent(query('.head-select-list li'), 'click', function () {
+        query('.head-search-select').innerHTML = this.innerHTML;
+        query('.head-select-list').classList.remove('showHide');
+    })
+    bindEvent(query('.content11-right-select-btn'), 'click', (ev) => {
+        ev.stopPropagation();
+
+            showObj(query('.content11-right-select'));
+
+
+    })
+    bindEvent(document, 'click', () => {
+        if(query('.content11-right-select')){
+        hideObj(query('.content11-right-select'));
+    }
+
+
+    })
+    bindEvent(query('.content11-right-select span'), 'click', function (ev) {
+        query('.selector-content').innerHTML = this.innerHTML;
+        hideObj(query('.content11-right-select'));
+        ev.stopPropagation();
+    });
+    tabsChange([{
+        changeClass: 'content11-right-select-active'
+    }])
+</script>
+
+</html>

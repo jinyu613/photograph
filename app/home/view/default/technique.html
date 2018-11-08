@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>文章列表页</title>
+		<!--防止IE进入怪异模式-->
+		<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{include file="public:head" /}
+	</head>
+
+	<body>
+		<div class="header other-page">
+			{include file="public:nav" /}
+
+		</div>
+		<div class="w1200 wz-liebiao-main clearfix mt30">
+			<div class="wz-liebiao-m-right fr">
+				<!--<div class="serch-cl">-->
+					<!--<input type="text" name="" id="" value="" placeholder="搜索技巧"/>-->
+					<!--<a href=""></a>-->
+				<!--</div>-->
+				<div class="week-hotwz mt20">
+					<h3><span class="spn-shugreen"></span>{if condition="$id eq 20"}一周热文{/if}{if condition="$id eq 21"}往期采访摄影师{/if}</h3>
+					{if condition="$id eq 20"}{foreach $hotdoc as $k=>$v}<p><a href="{:url('Index/substance',['id'=>$v['n_id']])}">{$v.news_title}</a></p>{/foreach}{/if}
+					{if condition="$id eq 21"}
+
+					<ul>
+						{foreach $inquiries as $k=>$v}
+						<li>
+							<a href="{:url('Index/detailed',['id'=>$v.member_list_id])}">
+								<img src="{$v.user_url}" alt="{$v.member_list_nickname}">
+								<p>{$v.member_list_nickname}</p>
+							</a>
+						</li>
+						{/foreach}
+					</ul>
+
+
+
+					{/if}
+
+				</div>
+				{notempty  name="$thumbnails"}
+				{if condition="$id eq 20"}
+				{foreach $thumbnails as $k=>$v}
+				<div class="wz-cl-tj mt20">
+					<a href="{$v.plug_ad_url}">
+						<img src="{$v.plug_ad_pic}"  alt="{$v.plug_ad_name}" />
+					</a>
+					<div class="fate"></div>
+				</div>
+				{/foreach}
+				{/if}
+				{/notempty}
+
+				<!--<div class="wz-cl-tj mt10">-->
+					<!--<a href="">-->
+						<!--<img src="images/pic8.png"/>-->
+					<!--</a>-->
+					<!--<div class="fate"></div>-->
+				<!--</div>-->
+				<!--<a href="" class="a-tougao mt20">{if condition="$id eq 20"}{/if}{if condition="$id eq 21"}申请访谈{/if}</a>-->
+			</div>
+
+			<div class="wz-liebiao-m-left fl">
+                   <div class="wzlb-p1 swiper-container ">
+                   	  <ul class="swiper-wrapper">
+						  {notempty  name="broadcast"}
+						  {foreach $broadcast as $k=>$v}
+						  <li class="swiper-slide">
+							  <a href="{$v.plug_ad_url}">
+								  <img src="{$v.plug_ad_pic}" alt="{$v.plug_ad_name}"/>
+							  </a>
+						  </li>
+						  {/foreach}
+						{/notempty}
+                   	  </ul>
+                   	  <div class="swiper-pagination ">
+                   	  	
+                   	  </div>
+                   </div>
+                   <div class="wz-list mt15 tabs-wrap">
+                   	 	<ul class="list-xxk-nav clearfix">
+                   		<li class="">
+                   			<a href="javascript:;" class="on2 tabs-btn">全部</a>
+                   			
+                   		</li>
+							{foreach $subgrade as $k=>$v}
+                   				<li class=""><a href="javascript:" class="tabs-btn">{$v.menu_name}</a></li>
+           					{/foreach}
+                   	</ul>
+                   	<ul class="list-ss-wenzhang mt15 wzlx-all tabs-item">
+						{foreach $whole as $k=>$v}
+    				<li class="clearfix">
+    					<a href="{:url('Index/substance',['id'=>$v['n_id']])}" >
+    						<div class="ss-wz-img fl">
+    							<img src="{$v.news_img}"/>
+    							<div class="fate">
+
+    							</div>
+    						</div>
+    						<div class="ss-wz-pro fl">
+    							<h3>{$v.news_title}</h3>
+    							<p>{$v.news_scontent}</p>
+    							<div class="ss-wz-lll">
+    								<span class="spn-lll">{$v.news_hits}</span><span class="spn-scl ml20">500</span>
+    							</div>
+
+    						</div>
+    					</a>
+    				</li>
+					{/foreach}
+    			</ul>
+					   {foreach $subgrade as $k=>$v}
+                   <ul class="list-ss-wenzhang mt15 wzlx-l{$k+1} tabs-item">
+					   {foreach $v['xia'] as $d=>$f}
+					   <li class="clearfix">
+						   <a href="{:url('Index/substance',['id'=>$f['n_id']])}">
+							   <div class="ss-wz-img fl">
+								   <img src="{$f.news_img}"/>
+								   <div class="fate">
+
+								   </div>
+							   </div>
+							   <div class="ss-wz-pro fl">
+								   <h3>{$f.news_title}</h3>
+								   <p>{$f.news_scontent}</p>
+								   <div class="ss-wz-lll">
+									   <span class="spn-lll">{$f.news_hits}</span><span class="spn-scl ml20">500</span>
+								   </div>
+
+							   </div>
+						   </a>
+					   </li>
+					   {/foreach}
+    			</ul>
+					   {/foreach}
+                   </div>
+			</div>
+		</div>
+
+		{include file="public:footer" /}
+		<script>
+    var swiper = new Swiper('.wzlb-p1', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+       autoplay : true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+    });
+  </script>
+  <script type="text/javascript">
+    	 tabsChange([{
+			changeClass: 'on2'
+		}])
+		$(function(){
+			{if $t_id}
+				if({$t_id} === 26){
+					// $(".list-xxk-nav li:last-child .tabs-btn").click();
+					$(".list-xxk-nav li .tabs-btn").removeClass('on2');
+					$(".list-xxk-nav li:last-child .tabs-btn").addClass('on2');
+					$(".tabs-wrap .tabs-item").hide();
+					$(".tabs-wrap .tabs-item:last-child").show();
+				}
+			{/if}
+			})
+  </script>
+	</body>
+
+</html>

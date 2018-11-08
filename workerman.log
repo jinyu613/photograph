@@ -1,0 +1,803 @@
+2018-10-30 04:45:31 pid:1 Error: Class 'think\db' not found in D:\PHP\Photography\http_test.php:16
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\http_test.php(22): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 04:45:31 pid:1 Worker process terminated
+2018-10-30 04:49:03 pid:1 Error: Class 'think\db' not found in D:\PHP\Photography\http_test.php:17
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\http_test.php(23): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 04:49:03 pid:1 Worker process terminated
+2018-10-30 04:55:44 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\http_test.php:14
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\http_test.php(25): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 04:55:44 pid:1 Worker process terminated
+2018-10-30 04:57:09 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\http_test.php:14
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\http_test.php(30): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 04:57:09 pid:1 Worker process terminated
+2018-10-30 04:59:46 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:14
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\test.php(30): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 04:59:46 pid:1 Worker process terminated
+2018-10-30 07:34:38 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:18
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\test.php(25): Workerman\Worker::runAll()
+#6 {main}
+2018-10-30 07:34:39 pid:1 Worker process terminated
+2018-10-30 07:34:54 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:18
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\test.php(25): Workerman\Worker::runAll()
+#6 {main}
+2018-10-30 07:34:55 pid:1 Worker process terminated
+2018-10-30 07:35:14 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:14
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\test.php(26): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 07:35:14 pid:1 Worker process terminated
+2018-10-30 07:35:43 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:16
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\test.php(27): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 07:35:43 pid:1 Worker process terminated
+2018-10-30 07:35:53 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:16
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #15)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\test.php(27): Workerman\Worker::runAll()
+#9 {main}
+2018-10-30 07:35:53 pid:1 Worker process terminated
+2018-10-30 07:36:06 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:20
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\test.php(27): Workerman\Worker::runAll()
+#6 {main}
+2018-10-30 07:36:07 pid:1 Worker process terminated
+2018-10-30 07:36:09 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:20
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\test.php(27): Workerman\Worker::runAll()
+#6 {main}
+2018-10-30 07:36:10 pid:1 Worker process terminated
+2018-10-30 07:36:11 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\test.php:20
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\test.php(27): Workerman\Worker::runAll()
+#6 {main}
+2018-10-30 07:36:12 pid:1 Worker process terminated
+2018-10-30 09:57:55 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(Workerman\Connection\TcpConnection), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(17): Workerman\Connection\TcpConnection->send(Object(Workerman\Connection\TcpConnection))
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'tom')
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'tom')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(26): Workerman\Worker::runAll()
+#11 {main}
+2018-10-30 09:57:55 pid:1 Worker process terminated
+2018-10-31 03:48:47 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(mysqli_result), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(32): Workerman\Connection\TcpConnection->send(Object(mysqli_result))
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'tom')
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'tom')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(54): Workerman\Worker::runAll()
+#11 {main}
+2018-10-31 03:48:47 pid:1 Worker process terminated
+2018-10-31 03:49:10 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(mysqli_result), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(32): Workerman\Connection\TcpConnection->send(Object(mysqli_result))
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'tom')
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'tom')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(54): Workerman\Worker::runAll()
+#11 {main}
+2018-10-31 03:49:10 pid:1 Worker process terminated
+2018-10-31 03:50:28 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(mysqli_result), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(32): Workerman\Connection\TcpConnection->send(Object(mysqli_result))
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'tom')
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'tom')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(53): Workerman\Worker::runAll()
+#11 {main}
+2018-10-31 03:50:28 pid:1 Worker process terminated
+2018-10-31 03:52:16 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(mysqli_result), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(32): Workerman\Connection\TcpConnection->send(Object(mysqli_result))
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'tom')
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'tom')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(53): Workerman\Worker::runAll()
+#11 {main}
+2018-10-31 03:52:16 pid:1 Worker process terminated
+2018-10-31 03:53:08 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(mysqli_result), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(32): Workerman\Connection\TcpConnection->send(Object(mysqli_result))
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'tom')
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'tom')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(53): Workerman\Worker::runAll()
+#11 {main}
+2018-10-31 03:53:08 pid:1 Worker process terminated
+2018-10-31 08:22:56 pid:1 Exception: You can't send(NULL) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(NULL, Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(33): Workerman\Connection\TcpConnection->send(NULL)
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'xxx')
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'xxx')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #20)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(43): Workerman\Worker::runAll()
+#11 {main}
+2018-10-31 08:22:56 pid:1 Worker process terminated
+2018-10-31 08:34:03 pid:1 Error: Class 'Timer' not found in D:\PHP\Photography\start.php:42
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\start.php(50): Workerman\Worker::runAll()
+#6 {main}
+2018-10-31 08:34:04 pid:1 Worker process terminated
+2018-10-31 08:59:07 pid:1 Exception: 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+ in D:\PHP\Photography\Workerman\Worker.php:2180
+Stack trace:
+#0 D:\PHP\Photography\start.php(26): Workerman\Worker->listen()
+#1 [internal function]: {closure}(Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#3 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#4 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#5 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#6 D:\PHP\Photography\start.php(81): Workerman\Worker::runAll()
+#7 {main}
+2018-10-31 08:59:08 pid:1 Worker process terminated
+2018-10-31 09:08:40 pid:1 Error: Call to undefined method Workerman\Worker::broadcast() in D:\PHP\Photography\start.php:23
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13 ,1,21312')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13 ,1,21312')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(75): Workerman\Worker::runAll()
+#9 {main}
+2018-10-31 09:08:40 pid:1 Worker process terminated
+2018-10-31 09:12:04 pid:1 Error: Call to undefined function broadcast() in D:\PHP\Photography\start.php:46
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13 ,1,21312')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13 ,1,21312')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(61): Workerman\Worker::runAll()
+#9 {main}
+2018-10-31 09:12:04 pid:1 Worker process terminated
+2018-10-31 09:13:33 pid:1 Error: Call to undefined function broadcast() in D:\PHP\Photography\start.php:46
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13 ,1,21321')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13 ,1,21321')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(61): Workerman\Worker::runAll()
+#9 {main}
+2018-10-31 09:13:33 pid:1 Worker process terminated
+2018-10-31 09:13:52 pid:1 Error: Call to undefined function broadcast() in D:\PHP\Photography\start.php:46
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13 ,1,12312')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13 ,1,12312')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(61): Workerman\Worker::runAll()
+#9 {main}
+2018-10-31 09:13:52 pid:1 Worker process terminated
+2018-10-31 09:22:07 pid:1 Error: Call to undefined method Workerman\Worker::send() in D:\PHP\Photography\start.php:53
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\start.php(57): Workerman\Worker::runAll()
+#6 {main}
+2018-10-31 09:22:08 pid:1 Worker process terminated
+2018-10-31 09:22:24 pid:1 Error: Call to undefined method Workerman\Worker::send() in D:\PHP\Photography\start.php:53
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\start.php(57): Workerman\Worker::runAll()
+#6 {main}
+2018-10-31 09:22:25 pid:1 Worker process terminated
+2018-10-31 09:24:36 pid:1 Error: Call to undefined method Workerman\Worker::getRemoteIp() in D:\PHP\Photography\start.php:53
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\start.php(57): Workerman\Worker::runAll()
+#6 {main}
+2018-10-31 09:24:37 pid:1 Worker process terminated
+2018-10-31 09:25:07 pid:1 Error: Call to undefined method Workerman\Worker::getRemoteIp() in D:\PHP\Photography\start.php:53
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Worker))
+#1 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#3 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#4 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#5 D:\PHP\Photography\start.php(57): Workerman\Worker::runAll()
+#6 {main}
+2018-10-31 09:25:08 pid:1 Worker process terminated
+2018-10-31 09:32:00 pid:1 Exception: 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+ in D:\PHP\Photography\Workerman\Worker.php:2180
+Stack trace:
+#0 D:\PHP\Photography\start.php(28): Workerman\Worker->listen()
+#1 [internal function]: {closure}(Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#3 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#4 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#5 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#6 D:\PHP\Photography\start.php(84): Workerman\Worker::runAll()
+#7 {main}
+2018-10-31 09:32:01 pid:1 Worker process terminated
+2018-10-31 09:32:59 pid:1 Exception: 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+ in D:\PHP\Photography\Workerman\Worker.php:2180
+Stack trace:
+#0 D:\PHP\Photography\start.php(29): Workerman\Worker->listen()
+#1 [internal function]: {closure}(Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#3 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#4 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#5 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#6 D:\PHP\Photography\start.php(85): Workerman\Worker::runAll()
+#7 {main}
+2018-10-31 09:33:00 pid:1 Worker process terminated
+2018-10-31 09:33:22 pid:1 Exception: 以一种访问权限不允许的方式做了一个访问套接字的尝试。
+ in D:\PHP\Photography\Workerman\Worker.php:2180
+Stack trace:
+#0 D:\PHP\Photography\start.php(28): Workerman\Worker->listen()
+#1 [internal function]: {closure}(Object(Workerman\Worker))
+#2 D:\PHP\Photography\Workerman\Worker.php(2306): call_user_func(Object(Closure), Object(Workerman\Worker))
+#3 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#4 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#5 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#6 D:\PHP\Photography\start.php(84): Workerman\Worker::runAll()
+#7 {main}
+2018-10-31 09:33:23 pid:1 Worker process terminated
+2018-10-31 10:24:58 pid:1 Error: Call to undefined function broadcast() in D:\PHP\Photography\start.php:94
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '1 ,1,12321')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1 ,1,12321')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(109): Workerman\Worker::runAll()
+#9 {main}
+2018-10-31 10:24:58 pid:1 Worker process terminated
+2018-10-31 10:25:31 pid:1 Error: Call to undefined function broadcast() in D:\PHP\Photography\start.php:94
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13 ,1,12312')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13 ,1,12312')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(109): Workerman\Worker::runAll()
+#9 {main}
+2018-10-31 10:25:31 pid:1 Worker process terminated
+2018-10-31 10:43:32 pid:1 Worker process terminated with ERROR: E_RECOVERABLE_ERROR "Object of class Workerman\Connection\TcpConnection could not be converted to string in D:\PHP\Photography\start.php on line 65"
+2018-10-31 10:46:08 pid:1 Error: Cannot use object of type Workerman\Connection\TcpConnection as array in D:\PHP\Photography\start.php:65
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '1 ,1,12321')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1 ,1,12321')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(103): Workerman\Worker::runAll()
+#9 {main}
+2018-10-31 10:46:08 pid:1 Worker process terminated
+2018-10-31 11:22:08 pid:1 Exception: You can't send(NULL) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(NULL, Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(77): Workerman\Connection\TcpConnection->send(NULL)
+#2 D:\PHP\Photography\start.php(30): sendMessageByUid('1', NULL)
+#3 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#4 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1')
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#6 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#7 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#8 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#9 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#10 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#11 D:\PHP\Photography\start.php(82): Workerman\Worker::runAll()
+#12 {main}
+2018-10-31 11:22:08 pid:1 Worker process terminated
+2018-10-31 11:26:06 pid:1 Exception: You can't send(NULL) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(NULL, Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(80): Workerman\Connection\TcpConnection->send(NULL)
+#2 D:\PHP\Photography\start.php(33): sendMessageByUid('1', NULL)
+#3 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#4 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1')
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#6 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#7 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#8 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#9 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#10 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#11 D:\PHP\Photography\start.php(85): Workerman\Worker::runAll()
+#12 {main}
+2018-10-31 11:26:06 pid:1 Worker process terminated
+2018-10-31 11:26:15 pid:1 Exception: You can't send(NULL) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(NULL, Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(80): Workerman\Connection\TcpConnection->send(NULL)
+#2 D:\PHP\Photography\start.php(33): sendMessageByUid('13', NULL)
+#3 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#4 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#6 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#7 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#8 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#9 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#10 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#11 D:\PHP\Photography\start.php(85): Workerman\Worker::runAll()
+#12 {main}
+2018-10-31 11:26:15 pid:1 Worker process terminated
+2018-10-31 11:26:51 pid:1 Exception: You can't send(NULL) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(NULL, Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(77): Workerman\Connection\TcpConnection->send(NULL)
+#2 D:\PHP\Photography\start.php(31): sendMessageByUid('13', NULL)
+#3 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#4 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#6 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#7 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#8 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#9 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#10 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#11 D:\PHP\Photography\start.php(82): Workerman\Worker::runAll()
+#12 {main}
+2018-10-31 11:26:51 pid:1 Worker process terminated
+2018-10-31 11:35:50 pid:1 Exception: You can't send(NULL) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(NULL, Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(84): Workerman\Connection\TcpConnection->send(NULL)
+#2 D:\PHP\Photography\start.php(33): sendMessageByUid('13', NULL)
+#3 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#4 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#6 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#7 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#8 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#9 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#10 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#11 D:\PHP\Photography\start.php(89): Workerman\Worker::runAll()
+#12 {main}
+2018-10-31 11:35:50 pid:1 Worker process terminated
+2018-11-03 02:52:39 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\start.php:13
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #21)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(86): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 02:52:39 pid:1 Worker process terminated
+2018-11-03 02:54:54 pid:1 Error: Call to undefined function mysql_connect() in D:\PHP\Photography\start.php:13
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(86): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 02:54:54 pid:1 Worker process terminated
+2018-11-03 03:02:09 pid:1 Error: Cannot use object of type Closure as array in D:\PHP\Photography\start.php:31
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(90): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 03:02:09 pid:1 Worker process terminated
+2018-11-03 03:02:33 pid:1 Worker process terminated with ERROR: E_RECOVERABLE_ERROR "Object of class Closure could not be converted to string in D:\PHP\Photography\start.php on line 31"
+2018-11-03 03:03:37 pid:1 Worker process terminated with ERROR: E_RECOVERABLE_ERROR "Object of class Closure could not be converted to string in D:\PHP\Photography\start.php on line 31"
+2018-11-03 03:03:58 pid:1 Error: Cannot use object of type Closure as array in D:\PHP\Photography\start.php:31
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(90): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 03:03:58 pid:1 Worker process terminated
+2018-11-03 03:09:39 pid:1 Error: Closure object cannot have properties in D:\PHP\Photography\start.php:31
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(90): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 03:09:39 pid:1 Worker process terminated
+2018-11-03 03:10:02 pid:1 Error: Closure object cannot have properties in D:\PHP\Photography\start.php:31
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(90): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 03:10:02 pid:1 Worker process terminated
+2018-11-03 03:11:34 pid:1 Error: Closure object cannot have properties in D:\PHP\Photography\start.php:31
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '13')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(90): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 03:11:34 pid:1 Worker process terminated
+2018-11-03 03:45:57 pid:1 Error: Call to undefined function mysql_query() in D:\PHP\Photography\start.php:36
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1&&&&&&&256')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(102): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 03:45:57 pid:1 Worker process terminated
+2018-11-03 04:09:41 pid:1 Error: Call to undefined function mysql_query() in D:\PHP\Photography\start.php:36
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1&&&&&&&123')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(102): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 04:09:41 pid:1 Worker process terminated
+2018-11-03 04:11:09 pid:1 Error: Class 'think\Db' not found in D:\PHP\Photography\start.php:37
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1&&&&&&&\xE5\xA4\xA7\xE5\xA4\xA7')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(103): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 04:11:09 pid:1 Worker process terminated
+2018-11-03 04:13:24 pid:1 Error: Class 'thinkphp\library\Db' not found in D:\PHP\Photography\start.php:37
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1&&&&&&&1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(103): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 04:13:24 pid:1 Worker process terminated
+2018-11-03 04:14:29 pid:1 Error: Class 'Workerman\Db' not found in D:\PHP\Photography\start.php:37
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1&&&&&&&12321')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(103): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 04:14:29 pid:1 Worker process terminated
+2018-11-03 04:23:41 pid:1 Error: Call to undefined function is_numeeric() in D:\PHP\Photography\start.php:21
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '1')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(103): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 04:23:41 pid:1 Worker process terminated
+2018-11-03 04:25:17 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(mysqli_result), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(93): Workerman\Connection\TcpConnection->send(Object(mysqli_result))
+#2 D:\PHP\Photography\start.php(25): sendMessageByUid('1', Object(mysqli_result))
+#3 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '1')
+#4 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1')
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#6 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#7 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#8 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#9 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#10 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#11 D:\PHP\Photography\start.php(98): Workerman\Worker::runAll()
+#12 {main}
+2018-11-03 04:25:17 pid:1 Worker process terminated
+2018-11-03 04:25:48 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(mysqli_result), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(93): Workerman\Connection\TcpConnection->send(Object(mysqli_result))
+#2 D:\PHP\Photography\start.php(25): sendMessageByUid('1', Object(mysqli_result))
+#3 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '1')
+#4 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1')
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#6 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#7 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#8 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#9 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#10 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#11 D:\PHP\Photography\start.php(98): Workerman\Worker::runAll()
+#12 {main}
+2018-11-03 04:25:48 pid:1 Worker process terminated
+2018-11-03 04:36:00 pid:1 Error: Closure object cannot have properties in D:\PHP\Photography\start.php:33
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13&&&&&&&\xE7\x9A\x84')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(104): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 04:36:00 pid:1 Worker process terminated
+2018-11-03 04:36:37 pid:1 Error: Cannot use object of type Closure as array in D:\PHP\Photography\start.php:33
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13&&&&&&&1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(104): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 04:36:37 pid:1 Worker process terminated
+2018-11-03 04:43:25 pid:1 Error: Call to undefined function object_array() in D:\PHP\Photography\start.php:78
+Stack trace:
+#0 D:\PHP\Photography\start.php(32): objectarray(Array)
+#1 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#2 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '13&&&&&&&\xE7\x9A\x84')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#4 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#5 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#6 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#7 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#8 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#9 D:\PHP\Photography\start.php(118): Workerman\Worker::runAll()
+#10 {main}
+2018-11-03 04:43:25 pid:1 Worker process terminated
+2018-11-03 04:44:16 pid:1 Worker process terminated with ERROR: E_ERROR "Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in D:\PHP\Photography\start.php on line 74"
+2018-11-03 08:12:01 pid:1 Worker process terminated with ERROR: E_ERROR "Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in D:\PHP\Photography\start.php on line 77"
+2018-11-03 08:19:45 pid:1 Worker process terminated with ERROR: E_ERROR "Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in D:\PHP\Photography\start.php on line 77"
+2018-11-03 08:31:55 pid:1 Exception: You can't send(object) to client, you need to convert it to a string.  in D:\PHP\Photography\Workerman\Protocols\Websocket.php:236
+Stack trace:
+#0 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(344): Workerman\Protocols\Websocket::encode(Object(Workerman\Connection\TcpConnection), Object(Workerman\Connection\TcpConnection))
+#1 D:\PHP\Photography\start.php(42): Workerman\Connection\TcpConnection->send(Object(Workerman\Connection\TcpConnection))
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), Array)
+#3 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1&&&&&&&3213213...')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#5 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#6 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#7 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#8 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#9 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#10 D:\PHP\Photography\start.php(125): Workerman\Worker::runAll()
+#11 {main}
+2018-11-03 08:31:55 pid:1 Worker process terminated
+2018-11-03 09:06:59 pid:1 Error: Cannot use object of type mysqli_result as array in D:\PHP\Photography\start.php:31
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '1')
+#1 D:\PHP\Photography\Workerman\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #16)
+#3 D:\PHP\Photography\Workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\PHP\Photography\Workerman\Worker.php(2321): Workerman\Events\Select->loop()
+#5 D:\PHP\Photography\Workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\PHP\Photography\Workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\PHP\Photography\Workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\PHP\Photography\start.php(117): Workerman\Worker::runAll()
+#9 {main}
+2018-11-03 09:06:59 pid:1 Worker process terminated

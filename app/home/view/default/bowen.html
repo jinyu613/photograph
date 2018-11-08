@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>好友动态-博文</title>
+	<!--防止IE进入怪异模式-->
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> {include file="public:head" /}
+</head>
+
+<body class="pd80">
+
+
+	<div class="w1200 bw-haoypudt bgfff">
+		<div class="bw-hy-p1">
+			<h3>{$content['news_title']}</h3>
+			<p class="clearfix">
+				<span>发布：
+					<em>{$content['news_time']|date="Y",###}年{$content['news_time']|date="m",###}月{$content['news_time']|date="d",###}日</em>
+				</span>
+				{if condition="$content['news_flag'] neq null"}
+				<span class="ml35">版权：
+					<em>{$content['news_flag']['diyflag_name']}</em>
+				</span>{/if}
+				<span class="fr">
+					<em>{$content['news_hits']}</em>浏览</span>
+			</p>
+		</div>
+		<div class="bw-hy-p2">
+			<a href="" class="a-tx-size40">
+				<img src="{$content['author']['user_url']}" alt="">
+			</a>
+			<a href="" class="a-name">{$content['author']['member_list_nickname']}</a>
+			<p>{$content['author']['member_list_headpic']}</p>
+			{if condition="$n_id neq $content['author']['member_list_id']"} {if condition="$content['author']['follow_id'] eq 2"}
+			<a href="javascript:;" class="a-guanzhu  follow" data="{$content['author']['member_list_id']}" tai="2">关注</a>
+			{else /}
+			<a href="javascript:;" class="a-guanzhu a-guanzhu2 follow" data="{$content['author']['member_list_id']}" tai="1">√已关注</a>
+			{/if} {/if}
+		</div>
+		<script>
+			$(function () {
+				$('.follow').click(function () {
+					var id = $(this).attr('data');
+					var tai = $(this).attr('tai');
+					var _this = $(this);
+					if (tai == 2) {
+						$.post("{:url('Listn/follow')}", {
+							id: id,
+							tai: tai
+						}, function (res) {
+						    console.log(res);
+							if (res == true) {
+								_this.attr('tai', 1);
+								layer.msg('成功关注');
+							}
+						})
+					} else {
+						$.post("{:url('Listn/follow')}", {
+							id: id,
+							tai: tai
+						}, function (res) {
+                            console.log(res);
+							if (res == true) {
+								_this.attr('tai', 2);
+								layer.msg('取消关注');
+							}
+						})
+					}
+
+				})
+			})
+		</script>
+		<div class="bw-hy-p3">
+			{$content['news_content']}
+		</div>
+		<div class="tags w920 mt50">
+			{if condition="$content['pag_id'] != array()"}
+			<span class="spn-bq">分享会</span>{foreach $content['pag_id'] as $k=>$v}
+			<span class="spn-bq">{$v}</span>{/foreach}{/if}
+		</div>
+		<div class="dianzan mt40">
+			<a href="javascript:" value="{$content['n_id']}" fache="{$content['author']['member_list_id']}" class="a-dianzan2"></a>
+			<p>
+				<em>{$content['fabulous']}</em>人觉得赞</p>
+		</div>
+		<script>
+			$(function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					$('.a-dianzan2').click(function () {
+						var n_id = $(this).attr('value');
+						var _this = $(this);
+						var id = $(this).attr('fache');
+						$.post("{:url('Listn/fabulous')}", {
+							id: id,
+							n_id: n_id
+						}, function (res) {
+							if (res == false) {
+								layer.msg('请不要重复点赞');
+							} else {
+								_this.html(res);
+							}
+
+						})
+					})
+				});
+			})
+		</script>
+		<div class="fx-box  clearfix w920 mt90">
+			<span class="a-shouc collect">收藏</span>
+			<script>
+                $(function () {
+                    layui.use('layer', function(){
+                        var layer = layui.layer;
+                    });
+                })
+                $(function () {
+                    $('.collect').click(function () {
+                        var tai = $(this).attr('tai');
+                        var n_id = $(this).attr('n_id');
+                        var _this = $(this);
+                        $.post("{:url('Listn/enshrine')}",{tai:tai,n_id:n_id},function (res) {
+
+                            if(typeof res==='string'){
+                                layer.msg('请登录 3秒自动跳转');
+                                setTimeout(()=>{
+                                    window.location.href="/home/index/entry.html";
+                            },1000)
+                            }else{
+                                if(res){
+                                    if(tai == 1){
+                                        layer.msg('取消收藏成功！');
+                                        _this.attr('tai',0);
+                                        _this.text('收藏作品');
+                                    }else{
+                                        layer.msg('收藏成功！');
+                                        _this.attr('tai',1);
+                                        _this.text('已收藏');
+                                    }
+                                };
+                            }
+
+
+                        })
+                    })
+                })
+			</script>
+			<div class="share fr">
+
+				<div class="bdsharebuttonbox fr">
+					<span>分享</span>
+					<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+					<a href="#" class="bds_weixin ml15" data-cmd="weixin" title="分享到微信"></a>
+					<a href="#" class="bds_qzone ml15" data-cmd="qzone" title="分享到QQ空间"></a>
+				</div>
+				<script>
+					window._bd_share_config = {
+						"common": {
+							"bdSnsKey": {},
+							"bdText": "",
+							"bdMini": "2",
+							"bdMiniList": false,
+							"bdPic": "",
+							"bdStyle": "2",
+							"bdSize": "24"
+						},
+						"share": {}
+					};
+					with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src =
+						'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+				</script>
+			</div>
+		</div>
+
+		{include file="public:rightslider"}
+
+		<div class="tuijian-yuedu w1200 mt60">
+			<h4>为您推荐</h4>
+			<ul class="list-tj clearfix">
+				{foreach $tui_nuber as $k=>$v}
+				<li>
+					<a href="">
+						<div class="pic-box">
+							<img src="{$v.news_img}">
+						</div>
+						<div class="tj-twofade1">
+							<p style="float: left">1</p>
+							<span class="spn-sl">6</span>
+							<span class="spn-lll">2222 浏览</span>
+						</div>
+
+					</a>
+
+				</li>
+				{/foreach}
+			</ul>
+		</div>
+
+	</div>
+	<script>
+		bindEvent(query('.spn-smile'), 'click', function (event) {
+			if (!$('#sinaEmotion').is(':visible')) {
+				$(this).sinaEmotion();
+				event.stopPropagation();
+			}
+		})
+
+		$('.release').bind({
+			click: function () {
+				var content = $('.c_content').val();
+				$('.test').html(content).parseEmotion();
+			}
+		});
+	</script>
+</body>
+
+</html>

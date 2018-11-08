@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>个人中心</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {include file="public:head" /}
+</head>
+
+<body>
+    <div class="header other-page">
+    {include file="public:nav"}
+    </div>
+    <div class="content17" style="background: url({$news['birthday_url']}) no-repeat 50% 50%;    background-size: cover;">
+        <div class="clearfix">
+            <div class="content17-left">
+                <a href="">
+                    <img src="{$news['user_url']}" alt="">
+                </a>
+                <div class="content17-left-left">
+                    <div>
+                        <span>{$news['member_list_nickname']}</span>
+                    </div>
+                    <div>
+                        <a href="">关注<span>{if condition="$news['follow_id'] eq null"}0{else
+                                /}{$news['follow_id']}{/if}</span></a>
+                        <a href="">粉丝<span>{if condition="$news['fans_id'] eq null"}0{else /}{$news['fans_id']}{/if}</span></a>
+                    </div>
+                    <!--<p>-->
+                    <!--约片微信/qq：414387891-->
+                    <!--</p>-->
+                </div>
+            </div>
+            <div class="content17-right">
+                <p>
+                    分享：<a href=""></a><a href=""></a><a href=""></a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content18 clearfix">
+        <ul class="clearfix">
+            <li {if condition="$type eq null" }class="content18-list-active" {/if}> <a href="{:url('Index/centrality')}">
+                作品<span>{$news['zhang']}</span>
+                </a>
+            </li>
+            <li {if condition="$type eq 2" }class="content18-list-active" {/if}> <a href="{:url('Index/centrality',['type'=>2])}">
+                收藏
+                </a>
+            </li {if condition="$type eq 3" }class="content18-list-active" {/if}> <li>
+            <a href="{:url('Index/centrality',['type'=>3])}">
+                资料
+            </a>
+            </li>
+        </ul>
+        {notempty name="time"}
+        <select class="select" fache="{$id}">
+            <option class="year" value="">
+                全部
+            </option>
+            {foreach $time as $k=>$v}
+            <option class="whole" value="{$v}">
+                {$v}
+            </option>
+            {/foreach}
+        </select>
+        {/notempty}
+
+
+    </div>
+    <script>
+        $(function () {
+        $('.select').change(function () {
+         var id = $(this).attr('fache');
+         var year = $(this).val();
+         $.post("{:url('Login/year')}",{id:id,year:year},function (res) {
+             console.log(res);
+         })
+        })
+    })
+</script>
+    <div class="content19 w1200 clearfix">
+        <form action="">
+            <input type="text" page-id='{$id}' placeholder="搜索作品" class="search-input">
+            <input type="button" class="search-btn">
+        </form>
+    </div>
+
+    {if condition ="$type eq 3"}
+    <div class="list-box list-ziliao">
+        <div class="profile-content">
+            <div class="profile-title">
+                <span>等级头衔</span>
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">等级</span>
+                <span class="profile-text">{$use.member_group_name}</span>
+                <a href="" target="_blank" title="查看等级说明"><i class="profile-ask">?</i></a>
+            </div>
+            <div class="profile-title profile-title-special">
+                <span>个人资料</span>
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">ID</span>
+                <span class="profile-text">{$use.member_list_id}</span>
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">居住地</span>
+                <div class="profile-text nothing">无</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">性别</div>
+                <div class="profile-text">保密</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">年龄</div>
+                <div class="profile-text"></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">联系邮箱</div>
+                <div class="profile-text nothing"></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">联系手机</div>
+                <div class="profile-text nothing">{$use.member_list_tel}</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">QQ</div>
+                <div class="profile-text nothing">无</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">我的装备</div>
+                <div class="profile-text nothing">无</div>
+            </div>
+            <div class="profile-item">
+                <span class="profile-label">个人说明</span>
+                <div class="profile-text nothing">{$use.member_list_province}</div>
+            </div>
+        </div>
+    </div>
+    {else /}
+
+    <div class="content20 w1200">
+        <ul class="clearfix items-wrap">
+
+            {foreach $news['n_id'] as $k=>$v}
+            <li>
+                <a href="{:url('Listn/substance',['id'=>$v.n_id])}">
+                    <img src="{$v.news_pic_allurl}" alt="{$v.news_pic_allurl_name}" download="{$v.news_pic_allurl_name}">
+                    <span>{$v.news_pic_allurl_shu}</span>
+                </a>
+                <div>
+                    <p>
+                        {$v.news_time|date="m-d",###}
+                    </p>
+                    <p>
+                        <strong>
+                            {$v.news_title}
+                        </strong>
+                    </p>
+                    <p>
+                        {foreach $v['pag_id'] as $j=>$l}
+                        <span>{$l.pag_name}</span>
+                        {/foreach}
+                    </p>
+                    <div class="clearfix">
+                        <span>{$v.news_hits}</span>
+                        <span>{$v.comment_count}</span>
+                        <a href="javascript:;" class="a_dianzan" value="{$v.n_id}" fache="{$id}">{$v.fabulous}</a>
+                    </div>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+    {/if}
+
+    {include file="public:footer" /}
+</body>
+<script>
+    bindEvent(query('.head-search-select'), 'click', () => {
+        query('.head-select-list').classList.toggle('showHide');
+    })
+    bindEvent(query('.head-select-list li'), 'click', function () {
+        query('.head-search-select').innerHTML = this.innerHTML;
+        query('.head-select-list').classList.remove('showHide');
+    })
+</script>
+
+
+<script>
+    function star() {
+        bindEvent(query('.a_dianzan'), 'click', function () {
+            var n_id = this.getAttribute('value');
+            var id = this.getAttribute('fache');
+            $.post("{:url('Listn/fabulous')}", {
+                id: id,
+                n_id: n_id
+            }, res => {
+                console.log(res);
+            })
+        })
+
+    }
+    star()
+    bindEvent(query('.search-btn'), 'click', ev => {
+        if (judgeNull(query('.search-input').value)) {
+            $.post("{:url('News/search')}", {
+                id: query('.search-input').getAttribute('page-id'),
+                searchCont: query('.search-input').value
+            }, res => {
+                query('.search-input').innerHTML = '';
+                addContent(res);
+                star();
+            })
+            query('.search-input').value = '';
+        }
+    })
+
+    function addContent(res) {
+        let content = '';
+        res.forEach(item => {
+            content +=
+                ` <li>
+                <a href="{:url('Listn/substance')}?id=${item.n_id}">
+                    <img src="${item.news_img}" >
+                    <span>${item.news_pic_allurl}</span>
+                </a>
+                <div>
+                    <p>
+                ${item.news_time}
+                    </p>
+                    <p>
+                        <strong>
+                ${item.news_title}
+                        </strong>
+                    </p>    
+                    <p>
+                        <span>${item.news_hits}</span>
+                    </p>
+                    <div class="clearfix">
+                        <span>${item.comment_count}</span>
+                        <span>0</span>
+                        <a href="javascript:;" class="a_dianzan" value="${item.n_id}" fache="${item.id}">${item.fabulous}</a>
+                    </div>
+                </div>
+            </li>`
+        });
+        query('.items-wrap').innerHTML = content;
+    }
+</script>
+
+</html>

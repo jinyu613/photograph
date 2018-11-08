@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>{$site_name}</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {include file="public:head" /}
+</head>
+<body>
+<div class="header other-page">
+    {include file="public:nav"}
+
+</div>
+<div class="activities-main">
+    <div class="acti-m-p1">
+        <div class="nav-xxk">
+            {foreach $xia as $k=>$v}
+            <a href="{:url('Index/summarizing',['id'=>$v.id,'menu_listtpl'=>$v.menu_listtpl])}" class="tabs-btn {if condition="$v.id eq $idd"}on1{elseif condition ="$k eq 0"/}on1{/if}">{$v.menu_name}</a>
+            {/foreach}
+        </div>
+
+    </div>
+    <div class="w1200 mt30">
+        <div class="acti-m-p2 swiper-container">
+            <ul class="swiper-wrapper">
+                {foreach $campaign as $k=>$v}
+                <li class="swiper-slide">
+                    <a href="{$v.plug_ad_url}">
+                        <img src="{$v.plug_ad_pic}" alt="{$v.plug_ad_name}"/>
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+            <div class="swiper-pagination ">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="acti-m-p3 w1200">
+        <div class="acti-m-p3s1 clearfix">
+            <div class="acti-m-p3s1g1 fr">
+                <div class="ss-acti">
+                    <input type="text" name="" id="" value="" placeholder="搜索活动"/><a href="" class="a-search"></a>
+                </div>
+            </div>
+        </div>
+        <div class="acti-m-p3s2">
+            <ul class="list-zj-online clearfix">
+                {foreach $pag as $k=>$v}
+                <li>
+                    <a href="">
+                        <div class="pic-box">
+                            <img src="{$v.pag_img}"/>
+                            <div class="fate">
+                            </div>
+                        </div>
+                        <div class="zjzp-pro">
+                            <div class="zjzp-pro-time clearfix">
+                                <span class="spn-timesy fl">{$v.p_pag_time}</span>
+                                <span class="spn-tolzp fr">共<em>{$v.news}</em>个作品</span>
+                            </div>
+                            <div class="zjzp-pro-p1">
+                              {$v.pag_quanname}
+                            </div>
+                            <div class="zjzp-pro-p2">
+                                <span class="spn-xzz"></span>{$v.pag_jian}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="ht120">
+
+</div>
+{include file="public:footer"}
+<script>
+    var swiper = new Swiper('.acti-m-p2', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay : true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+    });
+</script>
+</body>
+</html>

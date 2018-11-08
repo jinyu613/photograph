@@ -1,0 +1,119 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+
+<div class="page-content">
+    <!--主题-->
+    <div class="page-header">
+        <h1>
+            您当前操作
+            <small>
+                <i class="ace-icon fa fa-angle-double-right"></i>
+                修改文章
+            </small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal ajaxForm2 layui-form" name="form0" method="post" action="{:url('admin/News/news_pagedit')}"  enctype="multipart/form-data">
+                <input type="hidden" name="n_id" id="n_id" value="{$open.id}" />
+
+
+
+                <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 活动名称：  </label>
+                <div class="col-sm-10">
+                    <input type="text" name="pag_quanname" id="news_title"  value="{$open.pag_quanname}"   class="col-xs-10 col-sm-6" required/>
+                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resone"></span>
+											</span>
+                </div>
+            </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 活动结束日期：  </label>
+                    <div class="col-sm-10">
+                        <input name="p_pag_time" class="date-picker col-xs-10 col-sm-6" value='{$open.p_pag_time|date="Y-m-d",###}' type="text" data-date-format="yyyy-mm-dd">
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 活动简介： </label>
+            <div class="col-sm-9">
+                <input type="text" name="pag_jian" id="news_scontent" class="col-xs-10 col-sm-10"  maxlength="200" value="{$open.pag_jian}"  placeholder="输入活动简介"  />
+                <label class="input_last">已限制在200个字以内</label>
+            </div>
+        </div>
+        <div class="space-4"></div>
+                <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+
+                <p> <img class="layui_img" src="{$open.pag_img}" width="100px" height="100px"><input class="layui_img1" type="hidden" name="pag_img" value="{$open.pag_img}"></p>
+
+
+                <div class="clearfix form-actions">
+            <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-info" type="submit">
+                    <i class="ace-icon fa fa-check bigger-110"></i>
+                    保存
+                </button>
+
+                &nbsp; &nbsp; &nbsp;
+                <button class="btn" type="reset">
+                    <i class="ace-icon fa fa-undo bigger-110"></i>
+                    重置
+                </button>
+            </div>
+        </div>
+            </form>
+            <script src="__PUBLIC__/ace/js/layui.js"></script>
+            <script>
+                layui.use('upload', function(){
+                    var upload = layui.upload;
+                    //执行实例
+                    var uploadInst = upload.render({
+                        elem: '#test1' //绑定元素
+                        ,url: '{:url("Upload/index")}' //上传接口
+                        ,done: function(res){
+                            //    var html = '<img src='+res['data']['src']+' width="100px" height="100px"><input type="hidden" name="pag_img" value='+res['data']['src']+'>';
+                            $('.layui_img').attr('src',res['data']['src']);
+                            $('.layui_img1').attr('value',res['data']['src']);
+                        }
+                        ,error: function(){
+                            //请求异常回调
+                        }
+                    });
+                });
+            </script>
+</div>
+
+<!-- 显示模态框（Modal） -->
+{/block}
+    {block name="scripts"}
+    <script>
+        //多图设置
+        $("#pic_list").hide();
+        $("#news_pic_list").click(function(){
+            $("#pic_list").hide();
+        });
+        $("#news_pic_qqlist").click(function(){
+            $("#pic_list").show();
+        });
+        //跳转额外属性
+        $("#pptaddress").hide();
+        $("#news_flag_vaj").click(function(){
+            $("#pptaddress").toggle(400);
+        });
+        $("#cpprice").hide();
+        $("#news_flag_vacp").click(function(){
+            $("#cpprice").toggle(400);
+        });
+        $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            language:'zh-CN',
+        })
+    </script>
+    {/block}

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>作品列表页</title>
+		<!--防止IE进入怪异模式-->
+		<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{include file="public:head" /}
+	</head>
+	<body>
+		<div class="header other-page">
+			{include file="public:nav"}
+
+		</div>
+		
+		<div class="w1200 all-works clearfix mt30">
+			<div class="celan fr">
+				<div class="cl-head">
+					<a href="" class="a-tx-size60"><img src="{if condition="$use['user_url'] eq null"}{$yf_theme_path}public/images/img38.png {else /}{$use['user_url']}{/if}"/></a>
+					<a href="" class="a-name">{$use['member_list_nickname']}</a>
+				</div>
+				<div class="renqi-cl clearfix">
+					<a href="">
+						<dl>
+							<dt>作品</dt>
+							<dd>{$use['news_id']}</dd>
+						</dl>
+					</a>
+					<a href="" class="a-guanzhu">
+						<dl>
+							<dt>关注</dt>
+							<dd>{$use['follow_id']}</dd>
+						</dl>
+					</a>
+					<a href="">
+						<dl>
+							<dt>粉丝</dt>
+							<dd>{$use['fans_id']}</dd>
+						</dl>
+					</a>
+				</div>
+				<div class="pic-box mt15">
+				<a href="">
+					<img src="{$yf_theme_path}public/images/pic6.jpg"/>
+				</a>
+			</div>
+			</div>
+			
+			<div class="m-works fl">
+				<ul class="list-works" >
+					{notempty name="$use['article']"}
+					{foreach $use['article'] as $k=>$v}
+					<li>
+						<a href="{:url('Listn/substance',['id'=>$v.n_id])}" class="a-pic clearfix">
+							<img src="{$v.news_pic_allurl}"  download="{$v.news_pic_allurl_name}"/>
+							<span class="spn-sl">{$v.news_pic_allurl_shu}</span>
+							<div class="fate"></div>
+						</a>
+						<div class="lt-works-pro">
+							<div class="lws-p1 clearfix">
+								<div class="lws-p1s1 fl">
+									<a href="" class="a-tx-size40">
+										<img src="{if condition="$use['user_url'] eq null"}{$yf_theme_path}public/images/img38.png {else /}{$use['user_url']}{/if}"/>
+
+									</a>
+									<a href="" class="a-name">{$use['member_list_nickname']}</a>
+									<span class="spn-time">{$v.news_time|date="Y-m-d",###}</span>
+								</div>
+								<div class="lws-p1s2 fr">
+									<span class="spn-lll">{$v.news_hits}</span>
+									<span class="spn-pl">3</span>
+									<a href="javascript:" class="a-dianzan" value="{$v.n_id}" fache="{$id}">{if condition="$v.fabulous eq null"}0{else /}{$v.fabulous}{/if}</a>
+								</div>
+							</div>
+							<div class="lws-p2 mt25">
+								<h2>{$v.news_title}</h2>
+								<p>{$v.news_titleshort}</p>
+								{foreach $v['pag_id'] as $u=>$x}
+								<span class="spn-bq">{$x.pag_name}</span>
+								{/foreach}
+							</div>
+						</div>
+					</li>
+					{/foreach}
+					{/notempty}
+				</ul>
+			</div>
+		</div>
+		<script>
+			$(function () {
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+				$('.a-dianzan').click(function () {
+					var n_id = $(this).attr('value');
+					var _this = $(this);
+					var id =  $(this).attr('fache');
+					$.post("{:url('Listn/fabulous')}",{id:id,n_id:n_id},function (res) {
+					    if(res == false){
+								layer.msg('请不要重复点赞');
+                        }else{
+					        _this.html(res);
+						}
+
+                    })
+                })
+                });
+            })
+		</script>
+
+
+
+
+		{include file="public:footer"}
+		
+		
+	</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>{$site_name}</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {include file="public:head" /}
+</head>
+	<body>
+    {include file="public:nav"}
+    <div class="sousuo-p1">
+    	<div class="search-box">
+			<form method="post" action="{:url('Index/through')}" enctype="multipart/form-data">
+    	    <input type="text" name="like"  value="" placeholder="请输入搜索的关键字"/><a href="" class="a-search"></a>
+			</form>
+        </div>
+    </div>
+    <div class="sousuo-p2 tabs-wrap">
+    	<div class="nav-xxk">
+    		<a href="javascript:;" class="tabs-btn on1">作品</a><a href="javascript:;" class=" ml40 tabs-btn">用户</a><a href="javascript:;" class="ml40 tabs-btn">文章</a>
+    	</div>
+    	<div class="ss-result-box">
+    		<div class="w1200">
+    			
+    			<p class="p-ss-num">共<em>{$atlas}</em>个相关项</p>
+    			<div class="yh-box">
+    			<ul class="list-ss-zp clearfix tabs-item">
+					{foreach $news_like as $k=>$v}
+    			    	<li>
+    			    		<div class="ss-zp-pic">
+								{if condition="$v.news_pic_allurl neq null"}
+								{foreach $v.news_pic_allurl as $f=>$g}
+    			    			<a href="{:url('Listn/substance',['id'=>$v.n_id])}" class="dtu">
+    			    				<img src="{$g}"/>
+    			    			</a>
+								{/foreach}
+								{/if}
+    			    				<div class="ss-zp-s1 clearfix">
+    			    					{if condition = "$v.member_list neq null"}<a href="{:url('Listn/substance',['id'=>$v.n_id])}" class="a-tx"><img src="{$v['member_list']['user_url']}"/></a><span class="spn-name">{$v['member_list']['member_list_nickname']}</span>{/if}
+    			    					<span class="spn-sl fr">{$v.nuber}</span>
+    			    				</div>	
+    			    				<a href="{:url('Listn/substance',['id'=>$v.n_id])}"  class="img-zz">
+
+    			    				</a>
+    			    		</div>
+    			    		<div class="ss-zp-pro">
+    			    			<span class="spn-time">{$v.news_time|date="Y-m-d",###}</span>
+    			    		    <h4>{$v.news_title}</h4>
+								{foreach $v.pag_id as $h=>$y}
+    			    		    <span class="spn-bq">{$y.pag_name}</span>
+								{/foreach}
+    			    		</div>
+    			    	</li>
+    			 {/foreach}
+    			    </ul>
+    			<ul class="list-yonghu clearfix tabs-item">
+					{foreach $subscriber as $k=>$v}
+    				<li>
+    					<a href="" class="a-tx">
+    						<img src="{$v.user_url}"/>
+    					</a>
+    					<a href="" class="a-name">{$v.member_list_nickname}</a>
+						{if condition="$id neq $v['member_list_id']"}
+						{if condition="$v.follow_id eq 2"}
+						<a href="javascript:;" class="a-guanzhu follow" data="{$v['member_list_id']}" tai="2" >+ 关注</a>
+						{else /}
+						<a href="javascript:;" class="a-guanzhu follow" data="{$v['member_list_id']}" tai="1" >√ 已关注</a>
+						{/if}
+						{/if}
+    				</li>
+					{/foreach}
+    			</ul>
+					<script>
+                        $(function () {
+                            if (query('.follow')) {
+                            bindEvent(query('.follow'), 'click', function () {
+                                let id = this.getAttribute('data');
+                                let tai = this.getAttribute('tai');
+                                $.post("{:url('Listn/follow')}", {id: id, tai: tai}, res => {
+                                    if(res){
+                                        if (Number(tai) === 2) {
+                                            this.innerHTML = '√ 已关注';
+                                            this.setAttribute('tai', 1)
+                                        } else {
+                                            this.innerHTML = '+ 关注';
+                                            this.setAttribute('tai', 2)
+                                        }
+                                        this.classList.toggle('a-guanzhu2');
+                                    }
+                                }
+                                )
+
+                            })
+                        }
+                        })
+					</script>
+    			<ul class="list-ss-wenzhang tabs-item">
+					{foreach $news_null as $k=>$v}
+    				<li class="clearfix">
+    					<a href="{:url('Listn/substance',['id'=>$v.n_id])}" >
+    						<div class="ss-wz-img fl">
+    							<img src="{$v.news_pic_allurl}"/>
+    							<div class="fate">
+    							</div>
+    						</div>
+    						<div class="ss-wz-pro fl">
+    							<h3>{$v.news_title}</h3>
+    							<p>{$v.news_title}</p>
+    							<div class="ss-wz-lll">
+    								<span class="spn-lll">{$v.news_hits}</span><span class="spn-scl ml20">500</span>
+    							</div>
+    							
+    						</div>
+    					</a>
+    				</li>
+					{/foreach}
+    			</ul>
+    		</div>
+    		</div>
+    		
+    	</div>
+    </div>
+
+    {include file="public:footer" /}
+    <script type="text/javascript">
+      	 tabsChange([{
+   		changeClass: 'on1'    
+   }])
+    </script>
+	</body>
+</html>

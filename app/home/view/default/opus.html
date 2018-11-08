@@ -1,0 +1,503 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>作品内容页</title>
+	<!--防止IE进入怪异模式-->
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	{include file="public:head" /}
+</head>
+<body>
+<div class="header other-page">
+	{include file="public:nav"}
+
+</div>
+
+<div class="zpzs-p1 ">
+	<!-- neme -->
+	<div class="name-box">@{$subscriber['member_list_nickname']}</div>
+
+	<div class="zpzs-celan  bgfff">
+		<div class="zpzs-cl-p1">
+			<a href="" class="a-tx-size40"><img src="{$yf_theme_path}public/images/img11.png" /><span class="vip-spn" title="人像摄影红
+人"></span></a>
+			<a href="" class="a-name">{$subscriber['member_list_nickname']}</a>
+			<p>{$subscriber['member_group_name']}<a href="" class="a-help"></a></p>
+			{if condition="$id neq $subscriber['member_list_id']"}
+			{if condition="$content['author']['follow_id'] eq 2"}
+			<span class="btn-guanzhu btn-yigzhu" data="{$subscriber['member_list_id']}" tai="2">+ 关注</span>
+			{else /}
+			<span class="btn-guanzhu btn-yigzhu" data="{$subscriber['member_list_id']}" tai="1">已关注</span>
+			{/if}
+			{/if}
+
+		</div>
+		<script>
+            $(function () {
+                $('.follow').click(function () {
+                    var id = $(this).attr('data');
+                    var tai = $(this).attr('tai');
+                    var _this = $(this);
+                    if(tai == 2){
+                        $.post("{:url('Listn/follow')}",{id:id,tai:tai},function (res) {
+                            if(res == true){
+                                _this.attr('tai',1);
+                                layer.msg('成功关注');
+                            }
+                        })
+                    }else{
+                        $.post("{:url('Listn/follow')}",{id:id,tai:tai},function (res) {
+                            if(res == true){
+                                _this.attr('tai',2);
+                                layer.msg('取消关注');
+                            }
+                        })
+                    }
+
+                })
+            })
+		</script>
+		<div class="zpzs-cl-p2">
+			<h3>{$content['news_title']}</h3>
+			<p>{$content['news_titleshort']}</p>
+			<span class="spn-dianzan">{$content['fabulous']}</span><span class="spn-pl">3</span><span class="spn-lll">{$content['news_hits']}</span>
+		</div>
+		<!--<div class="zpzs-cl-p5">-->
+			<!--<a class="xz-jinhua" title="精华作品"></a><a class="xz-bianji" title="编辑推荐作品"></a><a class="xz-zhanzhang" title="站长推荐作-->
+<!--品"></a><a-->
+				<!--class="xz-shouyezp" title="摄影社区首页勋章"></a>-->
+		<!--</div>-->
+		<div class="zpzs-cl-p3">
+		{if condition="$fabulous eq 1"}
+			<a href="javascript:;" class="a-toupiao a-dianzan2232 a-yitp" value="{$content['n_id']}" fache="{$subscriber['member_list_id']}" tai="2">已投票，感谢！</a>
+			{else /}
+			<a href="javascript:;" class="a-toupiao a-dianzan2232" value="{$content['n_id']}" fache="{$subscriber['member_list_id']}" tai="1">投票支持</a>
+			{/if}
+			<script>
+                $(function () {
+                    layui.use('layer', function(){
+                        var layer = layui.layer;
+                        $('.a-dianzan2232').click(function () {
+                            var n_id = $(this).attr('value');
+                            var _this = $(this);
+                            var id =  $(this).attr('fache');
+                            var tai = $(this).attr('tai');
+                            $.post("{:url('Listn/fabulous')}",{id:id,n_id:n_id,tai:tai},function (res) {
+                                if(res == false){
+                                    layer.msg('请不要重复点赞');
+                                }else {
+                                    $('.spn-dianzan').html(res);
+                                }
+                            })
+                        })
+                    });
+                })
+			</script>
+			<a href="" class="a-xiepl">写评论</a>
+			{if condition="$content['if_content'] eq 1"}
+			<a href="javascript:;" class="a-shoucang collect" tai="1" n_id="{$content['n_id']}">已收藏</a>
+			{else /}
+			<a href="javascript:;" class="a-shoucang collect" tai="0" n_id="{$content['n_id']}" >收藏作品</a>
+			{/if}
+		</div>
+		<script>
+			$(function () {
+				$('.collect').click(function () {
+					var tai = $(this).attr('tai');
+					var n_id = $(this).attr('n_id');
+					var _this = $(this);
+					$.post("{:url('Listn/enshrine')}",{tai:tai,n_id:n_id},function (res) {
+						if(res){
+                            if(tai == 1){
+                                layer.msg('取消收藏成功！');
+                                _this.attr('tai',0);
+                                _this.text('收藏作品');
+							}else{
+                                layer.msg('收藏成功！');
+                                _this.attr('tai',1);
+                                _this.text('已收藏');
+							}
+						};
+                    })
+                })
+            })
+		</script>
+		<div class="zpzs-cl-p4 clearfix">
+			<div class="share fr">
+
+				<div class="bdsharebuttonbox fr">
+					<span>分享</span>
+					<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+					<a href="#" class="bds_weixin ml15" data-cmd="weixin" title="分享到微信"></a>
+					<a href="#" class="bds_qzone ml15" data-cmd="qzone" title="分享到QQ空间"></a>
+				</div>
+				<script>
+                    window._bd_share_config = {
+                        "common": {
+                            "bdSnsKey": {},
+                            "bdText": "",
+                            "bdMini": "2",
+                            "bdMiniList": false,
+                            "bdPic": "",
+                            "bdStyle": "2",
+                            "bdSize": "24"
+                        },
+                        "share": {}
+                    };
+                    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src =
+                        'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+				</script>
+			</div>
+		</div>
+	</div>
+
+	<div class="zpzs-s1 ">
+		<!-- 背景音乐 -->
+		<div class="music">
+			<i></i>
+			<iframe class="music-b" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22712173&auto=1&height=66"></iframe>
+		</div>
+		<!-- 背景音乐end -->
+		<div class="viewer">
+
+			<div class="bd" id="viewer">
+				<div class="cc_page_number hide"><span>1</span>/<span>1</span></div>
+				<div title="点击进入图片1:1模式" class="cc_btn_one hide" style=""></div>
+				<div title="点击退出全屏" class="cc_btn_exit_fullscreen hide" style=""></div>
+				<a href="javascript:;" style="display: none;" class="left-btn" title="上一张图片"></a>
+				<div class="pic">
+					{foreach $content['news_pic_allurl'] as $k=>$v}
+					{if condition ="$k eq 0"}
+					<img src="{$v}" alt="" ondragstart="return false;">
+					{/if}
+					{/foreach}
+
+				</div>
+				<a href="javascript:;" class="right-btn" title="下一张图片"></a>
+
+				<div class="last-box clearfix">
+					<div class="next_works">
+						<h4 class="title">为你推荐</h4>
+						<div class="img-wrap">
+							<div class="other-img">
+								<img src="{$nominate['news_img']}" alt=""
+									 style="margin-left: auto; height: auto; width: 100%; margin-top: 0px; display: block;">
+							</div>
+							<a href="{:url('Listn/substance',['id'=>$nominate['n_id']])}">
+								<div class="info-item">
+									<i class="cc_shaow t_shaow"></i>
+									<i class="cc_shaow b_shaow"></i>
+									<div class="cc_title">{$nominate['news_title']}</div>
+								</div>
+							</a>
+							<div class="cc_user_item clearfix">
+										<span class="user_img">
+											<div class="w_default_avatar">
+												<a href="" target="_self" class="avatar-wrapper size-40" style="background-
+image: url({$yf_theme_path}public/images/200016147_1529628752_31930_S64.jpg);"></a>
+											</div>
+										</span>
+								{notempty name="$nominate['xia']"}
+								<h4 class="user_name">{$nominate['xia']['member_list_nickname']}</h4>
+								{/notempty}
+
+							</div>
+						</div>
+					</div>
+					<div class="other_list">
+						<h4 class="title">
+							<span class="other_title"><a href="{:url('index/centrality',['id'=>$subscriber['member_list_id']])}" class="user-name">{$subscriber['member_list_nickname']}</a>的其他的作品</span>
+							<a href="{:url('index/centrality',['id'=>$subscriber['member_list_id']])}" target="_blank" class="more">查看更多</a>
+						</h4>
+						<div class="list clearfix">
+							<ul>
+								{foreach $other as $k=>$v}
+								<li>
+									<div class="cc_more_item">
+										<img src="{$v.news_img}"
+											 alt="" style="margin-left: auto; height: auto; width: 100%; margin-top: 0px; display: block;">
+									</div>
+									<a href="{:url('Listn/substance',['id'=>$v.n_id])}" target="_blank">
+										<div class="info-item">
+											<div class="cc_title">{$v.news_title}</div>
+										</div>
+									</a>
+								</li>
+								{/foreach}
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="hd">
+				<ul>
+					{foreach $content['news_pic_allurl'] as $k=>$v}
+					<li class="{if condition="$k eq 0"}active{/if} img_li ">
+						<img src="{$v}" alt="">
+					</li>
+					{/foreach}
+					<li class="end">
+						<a href="javascript:;">继续查看</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="cc_page_number"><span>1</span>/<span>1</span></div>
+
+		</div>
+
+		<div class="btm-left">
+					<span class="spn-camera">
+						<div class="hd-came">
+							<ul>
+								<li>
+									<p>品牌<em>Canon</em></p>
+								</li>
+								<li>
+									<p>型号<em>Canon EOS 6D</em></p>
+								</li>
+								<li>
+									<p>镜头<em>50mm</em></p>
+								</li>
+								<li>
+									<p>光圈<em>f/2.0</em></p>
+								</li>
+								<li>
+									<p>快门<em>1/320</em></p>
+								</li>
+								<li>
+									<p>焦距<em>50/1</em></p>
+								</li>
+								<li>
+									<p>ISO<em>200</em></p>
+								</li>
+								<li>
+									<p>日期<em>2018:04:15 14:51:47</em></p>
+								</li>
+							</ul>
+						</div>
+					</span>
+			<span class="spn-miaoshupic">
+						<div class="hd-descript">
+							<p>图片描述</p>
+							<em>无</em>
+						</div>
+					</span>
+		</div>
+		<div class="btm-right">
+			<a href="javascript:;" class="a-ckdatu">查看大图</a>
+			<a href="" class="a-shoulu">收录</a>
+		</div>
+		<div class="zpzs-main"></div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+<a href="#1" class="a-back-top"></a>
+<script type="text/javascript">
+		if(query('.btn-guanzhu')){
+			bindEvent(query('.btn-guanzhu'), 'click', function() {
+				this.classList.contains('btn-yigzhu') ? this.innerHTML = '+ 关注' : this.innerHTML = '已关注';
+				this.classList.toggle('btn-yigzhu');
+			})
+		}
+
+		if(query('.a-toupiao')){
+			bindEvent(query('.a-toupiao'), 'click', function() {
+				this.innerHTML = '已投票，感谢！';
+				this.classList.add('a-yitp');
+			})
+        }
+
+
+
+</script>
+
+<script type="text/javascript" src="{$yf_theme_path}public/js/jquery.mousewheel.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var t = true;
+        var n = true;
+        var l = $(".viewer .hd li.img_li").length;
+        $(".cc_page_number span:gt(0)").text(l);
+        $(".viewer .bd img,.a-ckdatu").click(function() {
+            if (!n) {
+                return false;
+            }
+            if (t) {
+                requestFullScreen(document.getElementById('viewer'));
+                t = false;
+            } else {
+                exitFull();
+                t = true;
+            }
+        });
+        $(".cc_btn_exit_fullscreen").click(function() {
+            exitFull();
+            t = true;
+            n = false;
+            $(".cc_btn_one").click();
+        })
+        //1:1
+        $(".cc_btn_one").click(function() {
+            if (n) {
+                $(this).addClass("green");
+                $(".viewer #viewer.big").addClass("cc_no_max");
+                n = false;
+            } else {
+                $(this).removeClass("green");
+                $(".viewer #viewer.big").removeClass("cc_no_max");
+                $(".viewer #viewer.big .pic").css({
+                    "transform": "inherit"
+                });
+                n = true;
+            };
+        })
+        //图片滑动
+        var x, y, x1, y1, x2, y2;
+        var x3 = 0;
+        var y3 = 0;
+        var d, m;
+        $(".viewer .bd .pic").mousedown(function(e) {
+            if (!n) {
+                x = e.pageX;
+                y = e.pageY;
+                d = true;
+            }
+        });
+        $(".viewer .bd .pic").mousemove(function(e) {
+            if (!n && d) {
+                x1 = e.pageX;
+                y1 = e.pageY;
+                x2 = x1 - x + x3;
+                y2 = y1 - y + y3;
+                $(".viewer #viewer.big .pic").css({
+                    "transform": "translate3d(" + x2 + "px," + y2 + "px,0)"
+                });
+            }
+        })
+        $(".viewer .bd .pic").mouseup(function(e) {
+            if (!n) {
+                x3 = x2;
+                y3 = y2;
+                d = false;
+            }
+        })
+    })
+
+    function hd_chenge() {
+        var _this = $(".viewer .hd li.active img");
+        var _src = _this.attr("src");
+        $(".viewer .bd .pic img").attr("src", _src);
+    }
+
+    function namben_chenge() {
+        var _this = $(".viewer .hd li.active");
+        var i = _this.index() + 1;
+        var l = $(".viewer .hd li.img_li").length;
+        if (i > 1) {
+            $(".left-btn").show();
+        } else if (i === 1) {
+            $(".left-btn").hide();
+        }
+        if (i > l) {
+            // alert(111);
+            $(".viewer .hd,.btm-left,.btm-right,.cc_page_number,.right-btn,.pic").hide();
+            $(".last-box").show();
+        } else {
+            $(".viewer .hd,.btm-left,.btm-right,.cc_page_number,.right-btn,.pic").show();
+            $(".last-box").hide();
+        }
+        $(".cc_page_number span:lt(1)").text(i);
+    }
+
+    function btn_click(n) {
+        var c = 110;
+        var i = n;
+        var _this = $(".viewer .hd li").eq(i);
+        _this.addClass("active").siblings().removeClass("active");
+        $(".viewer .hd ul").css({
+            "transition": "all 0.3s linear 0s",
+            "transform": "translate3d(-" + i * c + "px, 0px, 0px)"
+        });
+        hd_chenge();
+        namben_chenge();
+    }
+    $(".viewer .right-btn").click(function() {
+        var n = $(".viewer .hd li.active").next("li").index();
+        var l = $(".viewer .hd li").length;
+        if (n >= l) {
+            return false;
+        }
+        btn_click(n);
+    })
+    $(".viewer .left-btn").click(function() {
+        var n = $(".viewer .hd li.active").prev("li").index();
+        if (n < 0) {
+            return false;
+        }
+        btn_click(n);
+    })
+    $(".viewer .hd li").click(function() {
+        var n = $(this).index();
+        btn_click(n);
+    })
+    //jquery鼠标右击事件函数
+
+    function rightClickMouse(obj, callback) {
+        //禁止浏览器默认事件
+        $(document).delegate(obj, 'contextmenu', function(e) {
+            e.preventDefault();
+        });
+        //给选择器obj绑定右键事件
+        $(document).delegate(obj, 'mousedown', function(e) {
+            var $t = $(this);
+            if (e.which == 3) {
+                if (typeof callback == 'function') {
+                    //右键执行回调函数
+                    var x = e.pageX;
+                    var y = e.pageY;
+                    $(".name-box").css({
+                        "top": y,
+                        "left": x
+                    });
+                    $(".name-box").show();
+                }
+            }
+        });
+    }
+
+    // 显示@xx
+    rightClickMouse('.zpzs-p1', function(t) {});
+    // 隐藏@xx
+    $(".zpzs-p1,.name-box").click(function() {
+        $(".name-box").hide();
+    })
+    // 鼠标滚轮事件
+    $('#viewer').mousewheel(function(event, delta) {
+        event.stopPropagation();
+        event.preventDefault();
+        if (delta < 0) {
+            $(".viewer .right-btn").click();
+        } else {
+            $(".viewer .left-btn").click();
+        }
+    });
+    //音乐
+    $(".music i").click(function() {
+        $(".music .music-b").fadeToggle();
+    })
+</script>
+
+
+</body>
+</html>

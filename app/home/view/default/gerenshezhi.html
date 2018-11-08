@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>个人设置</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {include file="public:head"/}
+    <!--<link href="css/rest.css" type="text/css" rel="stylesheet" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/layout.css" />-->
+    <!--<link rel="stylesheet" href="./css/swiper.min.css">-->
+    <!--<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/base.js"></script>-->
+    <!--<script src="./js/swiper.min.js"></script>-->
+</head>
+
+
+    <div class="header other-page">
+        {include file="public:nav"}
+
+    </div>
+
+    <div class="content21 w1200 clearfix">
+        <div class="content21-left">
+            <ul>
+                <li class="content21-left-active">
+                    <a href="javascript:;">
+                        个人资料
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        账号与密码
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        隐私设置
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content21-right">
+            <form method="post" action="{:url('Login/preservation')}" enctype="multipart/form-data">
+            <h1>个人资料</h1>
+                <input type="hidden" name="member_list_id" value="{$explicit['member_list_id']}">
+            <div class="content21-one clearfix">
+                <div class="content21-one-left">
+                    <p>昵称</p>
+                    <input type="text" name="member_list_nickname" value="{$explicit['member_list_nickname']}">
+                    <p>个人签名</p>
+                    <input type="text" name="member_list_province" value="{$explicit['member_list_province']}">
+                </div>
+                <div class="content21-one-right">
+                    <p {if condition="$explicit['user_url'] neq null"}style="background: url({$explicit['user_url']});background-size:cover"  {/if}></p>
+                    <label for="img-file" id="goods_img">
+                     上传头像
+                    </label>
+                    <br/>
+                    <br/>
+                    <span class="suunto">   <input type="hidden"  name="birthday_url"  value="{$explicit['birthday_url']}" /></span>
+
+                    <label for="img-file" id="goods_img1">
+                        上传背景
+                    </label>
+                    <!--<input id="img-file" type="file" name="user_url" style="visibility: hidden;">-->
+                    <script>
+                        layui.use('upload', function(){
+                            var $ = layui.jquery
+                                ,upload = layui.upload;
+                            //多图片上传
+                            upload.render({
+                                elem: '#goods_img'
+                                ,url: '{:url("Upload/index")}'
+                                ,accept:'file'
+                                ,size: 0
+                                ,multiple: false
+                                ,before: function(obj){
+                                    //预读本地文件示例，不支持ie8
+                                    obj.preview(function(index, file, result){
+                                        // console.log(index)
+                                    });
+                                }
+                                ,done: function(res){
+                                    if(res.code>0){
+                                        alert('上传失败');
+                                    }else {
+                                       var html = '<input type="hidden"  name="user_url"  value="'+res["data"]["src"]+'" />';
+                                        $('#goods_img').append(html);
+                                        $('.content21-one-right p').css('background','url("'+res["data"]["src"]+'")').css('background-size','cover');
+                                        console.log(res)
+                                    }
+                                }
+                            });
+                            upload.render({
+                                elem: '#goods_img1'
+                                ,url: '{:url("Upload/index")}'
+                                ,accept:'file'
+                                ,size: 0
+                                ,multiple: false
+                                ,before: function(obj){
+                                    //预读本地文件示例，不支持ie8
+                                    obj.preview(function(index, file, result){
+                                        // console.log(index)
+                                    });
+                                }
+                                ,done: function(res){
+                                    if(res.code>0){
+                                        $('.suunto').html('上传失败');
+                                    }else {
+                                        $('.suunto input').attr('value',res["data"]["src"]);
+                                       $('.suunto').html('上传成功');
+                                        console.log(res)
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+
+            </div>
+
+            <div class="sex">
+                <p>性别</p>
+                <div class="clearfix">
+                    {if condition="$explicit['member_list_sex'] eq 1"}
+                    <input type="radio" name="member_list_sex" checked id="man" value="1">
+                    <label for="man">男</label>
+                    <input type="radio" name="member_list_sex"  id="girl" value="2">
+                    <label for="girl">女</label>
+                    <input type="radio" name="member_list_sex"  id="secrecy" value="3">
+                    <label for="secrecy">保密</label>
+                    {/if}
+                    {if condition="$explicit['member_list_sex'] eq 2"}
+                    <input type="radio" name="member_list_sex"  id="man" value="1">
+                    <label for="man">男</label>
+                    <input type="radio" name="member_list_sex"  checked id="girl" value="2">
+                    <label for="girl">女</label>
+                    <input type="radio" name="member_list_sex"  id="secrecy" value="3">
+                    <label for="secrecy">保密</label>
+                    {/if}
+                    {if condition="$explicit['member_list_sex'] eq 3"}
+                    <input type="radio" name="member_list_sex"  id="man" value="1">
+                    <label for="man">男</label>
+                    <input type="radio" name="member_list_sex"  id="girl" value="2">
+                    <label for="girl">女</label>
+                    <input type="radio" name="member_list_sex" checked id="secrecy" value="3">
+                    <label for="secrecy">保密</label>
+                    {/if}
+                </div>
+            </div>
+            <div class="region">
+                <p>地区</p>
+                <div class="clearfix">
+                    <select name="" id="">
+                        <option value="">
+                            省
+                        </option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">
+                            市
+                        </option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">
+                            县
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="domain-name">
+                <p>个性域名</p>
+                <input type="text" name="member_list_headpic"  value="{$explicit['member_list_headpic']}">
+            </div>
+
+            <div class="more-set"></div>
+            <!--<p class="more-edit">编辑</p>-->
+            <div>
+                <input type="submit" class="save-change" value="保存更改">
+            </div>
+
+            </form>
+        <div class="content22 clearfix">
+            <p>账号与密码</p>
+            <a href="">
+                进入账号服务中心
+            </a>
+        </div>
+
+        <!--<div class="content23 clearfix">-->
+            <!--<p>隐私设置</p>-->
+            <!--<div class='clearfix'>-->
+                <!--<span>-->
+                    <!--谁可以评论我的作品-->
+                <!--</span>-->
+                <!--<select name="" id="">-->
+                    <!--<option value="">-->
+                        <!--所有人-->
+                    <!--</option>-->
+                    <!--<option value="">-->
+                        <!--我关注的-->
+                    <!--</option>-->
+                    <!--<option value="">-->
+                        <!--关闭-->
+                    <!--</option>-->
+                <!--</select>-->
+            <!--</div>-->
+      
+                <!--<a href="javascript:;" class="save-change fl">-->
+                    <!--保存更改-->
+                <!--</a>-->
+           
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+{include file="public:footer" /}
+</body>
+<script>
+
+
+</script>
+
+</html>

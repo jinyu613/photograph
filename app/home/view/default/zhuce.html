@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>登录</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {include file="public:head" /}
+
+</head>
+
+<body>
+    <div class="header login-page">
+        <div class="head-content1 clearfix">
+            <a href="" class="logo">
+                <img src="./images/img3.png" alt="">
+            </a>
+            {include file="public:nav"}
+        </div>
+
+        <div class="login-forms-wrap">
+            <h1>
+                注册
+            </h1>
+            <div class="login-forms">
+                <form method="post" action="{:url('Index/submission')}">
+                    <label for="">手机号</label>
+                    <div class="clearfix">
+                        <select name="" id="">
+                            <option value="">
+                                中国
+                            </option>
+                        </select>
+                        <input class="photo" name="photo" type="text" value="">
+                    </div>
+                    <label for="">短信验证码</label>
+                    <div class="clearfix get-code" class="">
+                        <input type="text" name="yanzhenma" value="" >
+                        <span class="yanzhengma">
+                            获取验证码
+                        </span>
+                    </div>
+                    <label for="">设置密码</label>
+                    <div class="clearfix " class="">
+                        <input type="password" name="key" style="width:100%;">
+
+                    </div>
+                    <div class="read-rule clearfix">
+                        <input type="checkbox">
+                        <p>
+                            已阅读并接受 <a href="">《POCO注册协议》</a>
+                        </p>
+                    </div>
+                    <input type="submit" value="注册">
+                </form>
+                <a href="{:url('index/entry')}" class="go-login">
+                    已有账号？去登录
+                </a>
+            </div>
+
+
+        </div>
+        <p class="head-user-info">
+            作品来自：<a href="">摄影师武林</a>
+        </p>
+    </div>
+</body>
+<script>
+    $('.yanzhengma').click(function () {
+        var photo = $('.photo').val();
+        console.log(photo);
+        $.post("{:url('Index/yanzheng')}",{photo:photo},function (res) {
+            console.log(res);
+        })
+    })
+</script>
+<script>
+    bindEvent(query('.head-search-select'), 'click', () => {
+        query('.head-select-list').classList.toggle('showHide');
+    })
+    bindEvent(query('.head-select-list li'), 'click', function () {
+        query('.head-search-select').innerHTML = this.innerHTML;
+        query('.head-select-list').classList.remove('showHide');
+    })
+</script>
+
+</html>

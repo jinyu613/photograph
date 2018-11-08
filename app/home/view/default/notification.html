@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>消息中心</title>
+    <!--防止IE进入怪异模式-->
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> {include file="public:head" /}
+</head>
+
+<body>
+    <div class="header other-page">
+        {include file="public:nav" /}
+
+    </div>
+
+    <div class="content21 w1200 clearfix hmt650 tabs-wrap">
+        <div class="content21-left">
+            <ul>
+                <li class="tabs-btn content21-left-active">
+                    <a href="javascript:;">
+                        点赞
+                    </a>
+                </li>
+                <li class="tabs-btn">
+                    <a href="javascript:;">
+                        评论
+                    </a>
+                </li>
+                <!--<li class="tabs-btn">-->
+                <!--<a href="javascript:;">-->
+                <!--新粉丝-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="tabs-btn">-->
+                <!--<a href="javascript:;">-->
+                <!--收藏&记录-->
+                <!--</a>-->
+                <!--</li>-->
+                <li class="tabs-btn">
+                    <a href="javascript:;">
+                        私信
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="xxzx-right content24">
+
+            <div class="note-wu tabs-item">
+                <div class="content24-list">
+                    <ul>
+                        {if condition="$att neq null"}
+                        {foreach $att as $k=>$v}
+                        <li class="clearfix">
+                            <a href="" class="content24-list-left">
+                                <img src="{$v.user_url}" alt="">
+                            </a>
+                            <div class="content24-list-center">
+                                <p>
+                                    <a href="">{$v.member_list_nickname}</a>
+                                    点赞了你的作品
+                                    <a href="">{$v.wenzhang.news_title}</a>
+                                </p>
+                                <span>日</span>
+                            </div>
+                            <a href="" class="content24-list-right">
+                                <img src="{$v.wenzhang.news_img}" alt="">
+                            </a>
+                        </li>
+                        {/foreach}
+                        {/if}
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="note-wu tabs-item">
+                <p>
+                    <ul>
+                        {foreach $criticism_comment as $k=>$v}
+                        <li>
+                            您的作品<a href="{:url('Index/substance',['id'=>$v.uid.n_id])}">{$v.uid.news_title}</a>已经被{$v.xia}人评论了(<a
+                                href="{:url('Index/substance',['id'=>$v.uid.n_id])}">点击查看</a>)
+                        </li>
+                        {/foreach}
+                    </ul>
+                </p>
+            </div>
+            <div class="note-wu tabs-item">
+                <div class="xxzx-right">
+                    <ul class="list-sx">
+                        {foreach $private as $k=>$v}
+                        <li class="clearfix chat-obj" other-id='{$v.member_list_id}'>
+                            <div class="tx-box fl">
+                                <div class="sx-pic">
+                                    <img class="other-img" src="{$v.user_url}" />
+                                </div>
+                                <div class="pro-sxz clearfix" style="display: none;">
+                                    <a href="" class="tx-a"><img src="{$v.user_url}" /></a>
+                                    <a href="" class="a-name">{$v.member_list_nickname}</a>
+                                    <p>普通用户</p>
+                                    <p class="p-num">关注 <em>8</em> &nbsp;&nbsp;&nbsp;<i>|</i>&nbsp;&nbsp;&nbsp; 粉丝 <em>3</em></p>
+                                    <p>还没有留下个性签名</p>
+                                    <a href="javascript:;" class="a-guanzhu">+&nbsp;&nbsp;关注</a>
+
+                                    <input type="hidden" value="{$v.member_list_id}" class="other-id">
+                                    <!--<a href="" class="a-guanzhu2">取消关注</a>-->
+
+                                </div>
+                                <span class="spn-weidu unread-length" other-id='{$v.member_list_id}'></span>
+                            </div>
+                            <div class="sx-pro fl ">
+                                <span class="spn-name">{$v.member_list_nickname}</span><span class="sx-time">2018-09-20
+                                    16:48</span>
+                                <p>我们已经是好友了</p>
+                                <span class="spn-del-sx">删除</span>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                    <input type="hidden" value="{$id}" class="user-id">
+                    <div class="sx-box" style="display:none;">
+                        <div class="sx-box-head">
+                            <a href="">&lt; 私信列表</a>
+                            <span class="other-nickname">樱</span>
+                        </div>
+                        <div class="sx-ltjl msg-wrap">
+                            <!-- <p class="p-time">2018-09-20 16:20</p> -->
+                            <!-- <div class="sx-left clearfix">
+                                <a href="" class="tx-a"><img src="images/img1.png" /></a>
+                                <div class="sx-lt-text">
+                                    你是？
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+                            </div>
+                            <div class="sx-right clearfix">
+                                <a href="" class="tx-a"><img src="images/img9.png" /></a>
+                                <div class="sx-lt-text">
+                                    大大，我是你的粉丝~
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+
+                            </div>
+                            <div class="sx-right clearfix">
+                                <a href="" class="tx-a"><img src="images/img9.png" /></a>
+                                <div class="sx-lt-text">
+                                    我超级喜欢你的
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+
+                            </div> -->
+                            <!-- <p class="p-time">2018-09-20 16:26</p> -->
+                            <!-- <div class="sx-left clearfix">
+                                <a href="" class="tx-a"><img src="images/img1.png" /></a>
+                                <div class="sx-lt-text">
+                                    ~\(≧▽≦)/~
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="sx-box-foot">
+                            <span><img src="images/ic1.png" /></span>
+                            <input type="" name="" id="" value="" class="send-msg" placeholder="在此输入文字..." />
+                            <a href="javascript:;" class="a-send">发送</a>
+                        </div>
+                    </div>
+                    <!-- <div class="gm-message sx-box">
+                        <div class="sx-box-head">
+                            <a href="">&lt; 私信列表</a>
+                            <span>poco小助手</span>
+                        </div>
+                        <div class="sx-ltjl">
+                            <p class="p-time">2018-09-20 16:20</p>
+                            <div class="sx-left clearfix">
+                                <a href="" class="tx-a"><img src="images/img18.png" /></a>
+                                <div class="sx-lt-text">
+                                    <a href="" class="a-gftj">
+                                        <img src="images/img1.png" />
+                                        <h4>poco大疆航拍主题作品征集</h4>
+                                        <p>邀请您一起俯瞰秋天无情让我去不让我去外墙比uegdqwebeiuqge博文求个霸气温和霸气问过齐文化</p>
+                                    </a>
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+                            </div>
+                            <a href="" class="a-more">查看更多</a>
+                        </div>
+                        <div class="gm-mg-foot">
+                            官方账号通知
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="public:footer" /}
+
+</body>
+
+<script>
+    tabsChange([{
+        changeClass: 'content21-left-active'
+    }])
+</script>
+<script>
+    const msgWrap = query('.msg-wrap');
+    const userImg = query('.user-img').getAttribute('src');
+    let unreadData = JSON.parse(localStorage.getItem('unreads'));
+    let chatObjs = new Array(query('.chat-obj'));
+    let otherImg = null;
+    let otherId = null;
+
+
+    //初始化
+    init();
+
+    function init() {
+        if (unreadData) {
+            unreadData.forEach((item, index) => {
+                query('.unread-length').forEach((item1, index1) => {
+                    if (Number(item1.getAttribute('other-id')) === Number(item.id)) {
+                        item1.innerHTML = item.content.length;
+                    }
+                })
+            })
+        }
+        query('.unread-length').forEach(item => {
+            if (!judgeNull(item.innerHTML)) {
+                hideObj(item)
+            }
+        })
+    }
+
+
+    //监听消息
+    bindEvent(ws, 'message', msg => {
+
+        let msgData = msg.data.split('#$%_^*^&(*&')
+        if (msgData.length > 1 && judgeNull(msgData[1])) {
+            console.log(otherImg)
+            let msgText =
+                `   <div class="sx-left clearfix">
+                                <a href="" class="tx-a"><img src="${otherImg}" /></a>
+                                <div class="sx-lt-text">
+                                 ${msgData[1]}
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+                      </div>`
+            msgWrap.innerHTML += msgText;
+            setHistory(msgData[0], {
+                className: 'sx-left',
+                text: msgData[1],
+                src: otherImg
+            });
+        }
+    })
+
+    //监听发送
+    bindEvent(query('.a-send'), 'click', () => {
+
+        if (judgeNull(query('.send-msg').value)) {
+            ws.send(`${otherId}&&&&&&&${query('.send-msg').value}`);
+            let msgText =
+                `<div class="sx-right clearfix">
+                                <a href="" class="tx-a"><img src="${userImg}" /></a>
+                                <div class="sx-lt-text">
+                                    ${query('.send-msg').value}
+                                    <span class="spn-sanjiao"></span    >
+                                </div>
+                      </div>`
+            msgWrap.innerHTML += msgText;
+            setHistory(otherId, {
+                className: 'sx-right',
+                text: query('.send-msg').value,
+                src: userImg
+            });
+            query('.send-msg').value = '';
+        }
+    })
+
+    //监听进入聊天
+    bindEvent(query('.chat-obj'), 'click', function () {
+        otherId = Number(this.getAttribute('other-id'));
+        otherImg = this.querySelector('.other-img').getAttribute('src');
+
+        query('.other-nickname').innerHTML = this.querySelector('.a-name').innerHTML;
+        showObj(query('.sx-box'));
+        hideObj(query('.list-sx'));
+        getHistory(otherId)
+        if (unreadData) {
+            unreadData.forEach((item, index) => {
+                if (Number(item.id) === otherId) {
+                    item.content.forEach((item1, index1) => {
+                        let msgText =
+                            `   <div class="sx-left clearfix">
+                                <a href="" class="tx-a"><img src="${otherImg}" /></a>
+                                <div class="sx-lt-text">
+                                 ${item1}
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+                      </div>`
+                        msgWrap.innerHTML += msgText;
+
+                        setHistory(otherId, {
+                            className: 'sx-left',
+                            text: item1,
+                            src: otherImg
+                        });
+
+                    })
+                    unreadData.splice(index, 1);
+                };
+            })
+        }
+        localStorage.setItem('unreads', JSON.stringify(unreadData));
+    })
+
+
+    //设置本地存储
+    function setHistory(id, content) {
+        let historyMsg = localStorage.getItem('historyMsg') ? JSON.parse(localStorage.getItem('historyMsg')) : [];
+        let obj = null;
+        if (historyMsg.length > 0) {
+            historyMsg.forEach((item, index) => {
+                if (Number(id) === Number(item.id)) {
+                    historyMsg[index].content = [...item.content, content];
+                }
+                if (Number(id) !== Number(item.id) && index === historyMsg.length - 1) {
+                    obj = {
+                        id,
+                        content: [content]
+                    }
+                    historyMsg.push(obj);
+                }
+            })
+        } else {
+            obj = {
+                id,
+                content: [content]
+            }
+            historyMsg.push(obj);
+        }
+        localStorage.setItem('historyMsg', JSON.stringify(historyMsg));
+    }
+
+    //获取本地存储
+    function getHistory(id) {
+        let historyMsg = localStorage.getItem('historyMsg') ? JSON.parse(localStorage.getItem('historyMsg')) : [];
+        msgWrap.innerHTML = '';
+        historyMsg.forEach((item, index) => {
+            if (Number(item.id) === id) {
+                item.content.forEach((item1, index1) => {
+                    let msgText =
+                        `   <div class="${item1.className} clearfix">
+                                <a href="" class="tx-a"><img src="${item1.src}" /></a>
+                                <div class="sx-lt-text">
+                                    ${item1.text}
+                                    <span class="spn-sanjiao"></span>
+                                </div>
+                      </div>`
+                    msgWrap.innerHTML += msgText;
+                })
+            };
+        })
+    }
+</script>
+
+</html>

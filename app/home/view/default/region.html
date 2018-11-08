@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>{$site_name}</title>
+	<!--防止IE进入怪异模式-->
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	{include file="public:head" /}
+</head>
+
+<body>
+	<div class="header other-page">
+		{include file="public:nav"}
+	</div>
+
+	<div class="club-ctn-p1 w1200 mt30">
+
+		<!--<div class="club-ctn-p1s1">-->
+			<!--<h2>加入地区站，与你身边的摄影师一起玩转摄影！</h2>-->
+			<!--<div class="sel-group mt75">-->
+				<!--<div class="sel-cc">-->
+					<!--<div class="sel-show">-->
+						<!--{foreach $xia as $k=>$v}-->
+						<!--{if condition="$k eq 0"}-->
+						<!--{$v.menu_name}-->
+						<!--{/if}-->
+						<!--{/foreach}-->
+					<!--</div>-->
+					<!--<div class="cc-content">-->
+						<!--<ul class="list-sel-item">-->
+							<!--{foreach $xia as $k=>$v}-->
+							<!--<li class="sei-moren">-->
+								<!--<p>{$v.menu_name}</p>-->
+							<!--</li>-->
+							<!--{/foreach}-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div class="sel-cc">-->
+					<!--<div class="sel-show">-->
+						<!--{foreach $xia as $k=>$v}-->
+						<!--{if condition="$k eq 0"}-->
+						<!--{foreach $v['xia'] as $s=>$d}-->
+						<!--{$d.menu_name}-->
+						<!--{/foreach}-->
+						<!--{/if}-->
+						<!--{/foreach}-->
+					<!--</div>-->
+					<!--<div class="cc-content">-->
+						<!--<ul class="list-sel-item">-->
+							<!--{foreach $xia as $k=>$v}-->
+							<!--{foreach $v['xia'] as $s=>$d}-->
+							<!--<li class="sei-moren">-->
+								<!--<p>{$d.menu_name}</p>-->
+							<!--</li>-->
+							<!--{/foreach}-->
+							<!--{/foreach}-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<a href="javascript:;" class="a-join-club">加入</a>-->
+			<!--</div>-->
+		<!--</div>-->
+
+	</div>
+	<div class="club-ctn-p2 bgfff">
+		<div class="nav-club">
+
+			{foreach $xia as $k=>$v}
+			<span class="{if condition='$k eq 0'}cur{/if} summar" m_id="{$v.id}">{$v.menu_name}</span>
+			{/foreach}
+		</div>
+
+		<div class="xxk-club-ctn mt30">
+			<ul class="list-club">
+				<li class="chengshi">
+					{foreach $xia as $k=>$v}
+					{if condition="$k eq 0"}
+					{foreach $v['xia'] as $s=>$d}
+					<a href="{:url('News/district',['id'=>$d.id])}">{$d.menu_name}</a>
+					{/foreach}
+					{/if}
+					{/foreach}
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	<script>
+		$(function () {
+        $('.summar').click(function () {
+            var id	= $(this).attr('m_id');
+            var _this = $(this);
+			_this.addClass('cur').siblings().removeClass('cur');
+            $.post("{:url('index/summar')}",{id:id},function (res) {
+                console.log(res);
+                $('.chengshi').empty();
+                $(res).each(function (index,value) {
+                    var html =`<a href='{:url("News/district")}?id=${value['id']}'>${value['menu_name']}</a>`
+                    $('.chengshi').append(html);
+                });
+            })
+        })
+    })
+</script>
+	<div class="club-ctn-p3 mt100">
+		<div class="club-title">
+			<i></i>
+			<span>热门地区站</span>
+			<i></i>
+		</div>
+		<div class="club-box w1200 mt70">
+			<ul class="list-cb-hot clearfix">
+				{foreach $remen as $k=>$v}
+				<li>
+					<a href="">
+						<div class="detail-cb-hot clearfix">
+							<div class="pic-box fl">
+								<img src="{$v.menu_img}" />
+							</div>
+							<div class="cb-hot-pro fl">
+								<h3>{$v.menu_name}</h3>
+								<p>成员：<em>{$v.nuber}</em></p>
+								<p>作品：<em>{$v.member_list_id}</em></p>
+							</div>
+						</div>
+					</a>
+				</li>
+				{/foreach}
+			</ul>
+		</div>
+
+		<div class="club-title mt100">
+			<i></i>
+			<span class="ceshi">地区站长</span>
+			<i></i>
+		</div>
+		<div class="club-box w1200 mt50">
+			<ul class="list-zhangz clearfix">
+
+			</ul>
+		</div>
+		<a href="javascript:;" class="a-more-zz">查看更多</a>
+	</div>
+	<script>
+
+		let onOff = false;
+			let number=0;
+		    bindEvent(query('.a-more-zz'),'click',()=>{
+				addMore();
+			})
+			addMore();
+			function addMore(){
+		        onOff = false;
+				$.post("{:url('News/stationmaster')}",{
+					number,
+					numberTwo: 8
+					},res=>{
+					console.log(res);
+					onOff = false;
+					number+=8;
+					moreContent(res)
+				})
+			}
+
+		    function moreContent(data){
+				let listItem = '';
+				data.forEach(item => {
+					listItem +=
+						`<li>
+				<div class="zhangz-detail">
+					<div class="zgz-de-p1" style="background: url(${item.birthday_url});">
+						<a href="" class="a-tx-size56">
+							<img src="${item.user_url}"/>
+							<span class="spn-vip" title="人像摄影红人"></span>
+						</a>
+					</div>
+					<div class="zgz-de-p2">
+						<a href=" " class="a-name">${item.member_list_nickname}</a>
+						<span class="spn-zd">${item.menu_name}</span>
+						<div class="xuanyan-zz">
+							<p>${item.member_list_province}</p>
+						</div>
+					</div>
+				</div>
+			</li>`;
+				})
+				query('.list-zhangz').innerHTML += listItem;
+				this.onOff = true;
+			}
+
+
+</script>
+	<div class="bg_black"></div>
+	<div class="content_wrap">
+		<a href="javascript:;" class="close">×</a>
+		<h3>申请加入</h3>
+		<form>
+			<ul>
+				<li>
+					<label for="">联系邮箱</label>
+					<input type="text" placeholder="请填入邮箱">
+				</li>
+				<li>
+					<label for="">联系手机</label>
+					<input type="text" placeholder="请填入手机">
+				</li>
+			</ul>
+			<div class="content_tips_wrap">
+				<p>确定加入后，满一个月才能更换加入其它地方站。</p>
+				<p>当您迁移到另一个地区站时，已关联的地区站作品不作转移。</p>
+			</div>
+			<div class="change_btn">
+				<a href="javascript:;" class="change_btn_detail change_btn_del">取消</a>
+				<input type="submit" class="change_btn_detail change_confirm_btn" value="提交">
+			</div>
+		</form>
+	</div>
+
+	<div class="ht120">
+
+	</div>
+	{include file="public:footer"}
+	<script type="text/javascript">
+		$(".sel-show").click(function () {
+			$(this).next(".cc-content").toggle();
+
+		})
+		$(".cc-content li").click(function () {
+			var _this = $(this).parents(".cc-content");
+			_this.siblings(".sel-show").text($(this).find("p").text());
+			_this.hide();
+			_this.parents('.sel-cc').next('.sel-cc').find('.cc-content').show();
+		})
+		$(".a-join-club").click(function () {
+			$(".bg_black,.content_wrap").fadeIn();
+			var w = $(".content_wrap").width() / 2;
+			var h = $(".content_wrap").height() / 2;
+			$(".content_wrap").css({
+				"margin-left": -w,
+				"margin-top": -h
+			});
+		});
+		$(".bg_black,.content_wrap a.close,.content_wrap .change_btn a").click(function () {
+			$(".bg_black,.content_wrap").fadeOut();
+		});
+	</script>
+</body>
+</html>
